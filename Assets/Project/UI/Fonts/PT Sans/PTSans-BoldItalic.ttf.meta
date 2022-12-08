@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80537d88a3aa1cf44b63085c4d27b9c1
+guid: 75118d8708cb47442a797e8cdad21c5c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +10,9 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - PT Sans
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 12942f3e92e83aa439666e7214817574, type: 3}
+  - {fileID: 12800000, guid: 80537d88a3aa1cf44b63085c4d27b9c1, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

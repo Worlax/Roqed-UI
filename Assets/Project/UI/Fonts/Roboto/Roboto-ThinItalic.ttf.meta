@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80537d88a3aa1cf44b63085c4d27b9c1
+guid: 36cb8a1c2a6637349bd2a41ab94e642a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,12 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - PT Sans
-  fallbackFontReferences: []
+  - Roboto
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1518f55185bb6fe4399bd0a58b5a03b0, type: 3}
+  - {fileID: 12800000, guid: f2dd8321b9d691b4c9e6622f3e695f39, type: 3}
+  - {fileID: 12800000, guid: 23708ff7278da9842b8758677b9bb6b0, type: 3}
+  - {fileID: 12800000, guid: f3dc1ccd3b1a0384195be342de9227c0, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
