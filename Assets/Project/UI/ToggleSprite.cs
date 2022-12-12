@@ -4,9 +4,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Toggle))]
 public class ToggleSprite : MonoBehaviour
 {
-	[SerializeField] Image image;
-	[SerializeField] Sprite spriteOn;
-	[SerializeField] Sprite spriteOff;
+	[SerializeField] Image target;
+	[SerializeField] Sprite on;
+	[SerializeField] Sprite off;
 
 	// Unity
 	private void Start()
@@ -19,6 +19,6 @@ public class ToggleSprite : MonoBehaviour
 	// Events
 	void ValueChanged(bool value)
 	{
-		image.sprite = value ? spriteOn : spriteOff;
+		target.sprite = value ? on : off;
 	}
 }
