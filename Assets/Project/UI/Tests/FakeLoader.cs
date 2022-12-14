@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class FakeLoader
 {
-	public static SettingsData LoadSettings()
+	public static SettingsData GetSettingsData()
 	{
 		return new SettingsData()
 		{
@@ -33,21 +33,21 @@ public static class FakeLoader
 		};
 	}
 
-	public static CourseData[] LoadCourses()
+	public static CourseData[] GetCoursesData()
 	{
 		return new CourseData[7]
 		{
-			CreateRandomCourse(),
-			CreateRandomCourse(),
-			CreateRandomCourse(),
-			CreateRandomCourse(),
-			CreateRandomCourse(),
-			CreateRandomCourse(),
-			CreateRandomCourse()
+			CreateRandomCourseData(),
+			CreateRandomCourseData(),
+			CreateRandomCourseData(),
+			CreateRandomCourseData(),
+			CreateRandomCourseData(),
+			CreateRandomCourseData(),
+			CreateRandomCourseData()
 		};
 	}
 
-	static CourseData CreateRandomCourse()
+	static CourseData CreateRandomCourseData()
 	{
 		return new CourseData()
 		{

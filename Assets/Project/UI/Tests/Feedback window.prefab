@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 5551356432859746819}
   - component: {fileID: 5551356432859746818}
   m_Layer: 5
-  m_Name: Feedback
+  m_Name: Feedback window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,17 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
+using Zenject;
 
 public class CourseList : MonoBehaviour
 {
 	[SerializeField] Transform content;
-	[SerializeField] CourseViewSmall courseViewPrefab;
+	[Inject] ViewFactory viewFactory;
 
 	void FillContent()
 	{
-		foreach (CourseData coures in FakeLoader.LoadCourses())
+		foreach (CourseData data in FakeLoader.GetCoursesData())
 		{
-			CourseViewSmall item = Instantiate(courseViewPrefab, content);
-			item.Init(coures);
+			viewFactory.CreateCourseView(data, content);
 		}
 	}
 

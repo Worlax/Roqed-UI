@@ -705,9 +705,9 @@ GameObject:
   m_Component:
   - component: {fileID: 791899134138453332}
   - component: {fileID: 3208730660998313249}
-  - component: {fileID: 9045839713891834882}
+  - component: {fileID: 7404587527988568510}
   m_Layer: 5
-  m_Name: Course view big
+  m_Name: Course window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,7 +744,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6177998728051100153}
   m_CullTransparentMesh: 1
---- !u!114 &9045839713891834882
+--- !u!114 &7404587527988568510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6177998728051100153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a76eb1f96d11145a03042f6f2c0849, type: 3}
+  m_Script: {fileID: 11500000, guid: a89744680fc6c234daf4c628ec454c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1932411943567671257}

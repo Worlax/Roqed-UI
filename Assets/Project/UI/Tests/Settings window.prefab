@@ -3551,7 +3551,7 @@ GameObject:
   - component: {fileID: 4664022263657531602}
   - component: {fileID: 4664022263657531612}
   m_Layer: 5
-  m_Name: Settings view
+  m_Name: Settings window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3628,7 +3628,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4664022263657531600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a52eb20e85ee11498c5a4e993892726, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c6ac1d6c49d1dc43bf4027ba2d537b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 4664022263487139536}

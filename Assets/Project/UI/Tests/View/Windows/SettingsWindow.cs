@@ -1,13 +1,10 @@
 using System.Linq;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class SettingsView : Window
+public class SettingsWindow : Window
 {
-	[SerializeField] Button closeButton;
-
 	// System
 	[SerializeField] TMP_Dropdown language;
 	[SerializeField] TMP_Text savePath;
@@ -31,26 +28,18 @@ public class SettingsView : Window
 
 	[SerializeField] Toggle enableVoice;
 
-	SettingsData data;
-
-	public override void Init<T>(T initData)
+	protected override void Init()
 	{
-		data = initData as SettingsData;
+		ISettingsData settingsData = data as ISettingsData;
 
-		language.AddOptions(data.Languages.ToList());
-		language.value = language.options.FindIndex(x => x.text == data.ActiveLanguage);
+		language.AddOptions(settingsData.Languages.ToList());
+		language.value = language.options.FindIndex(x => x.text == settingsData.ActiveLanguage);
 
-		savePath.text = data.SavePath;
-		email.text = data.Email;
+		savePath.text = settingsData.SavePath;
+		email.text = settingsData.Email;
 
-		interactive.isOn = data.Interactive;
-		betaFeatures.isOn = data.BetaFeatures;
-		offlineMode.isOn = data.OfflineMode;
-	}
-
-	// Unity
-	private void Start()
-	{
-		closeButton.onClick.AddListener(Close);
+		interactive.isOn = settingsData.Interactive;
+		betaFeatures.isOn = settingsData.BetaFeatures;
+		offlineMode.isOn = settingsData.OfflineMode;
 	}
 }
