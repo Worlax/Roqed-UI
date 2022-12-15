@@ -1,4 +1,4 @@
-public class SettingsData : ISettingsData
+public class SettingsData : Data
 {
 	// System
 	public string[] Languages { get; set; }

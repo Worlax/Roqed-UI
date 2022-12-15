@@ -1,21 +1,22 @@
-using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class WindowInteractionBlocker : MonoBehaviour
 {
 	[SerializeField] Transform body;
+	[Inject] WindowFactory windowFactory;
 
 	// Unity
 	private void Start()
 	{
-		Window.OnCreated += UpdateBlocker;
-		Window.OnClosed += UpdateBlocker;
+		windowFactory.OnWindowOpened += _ => UpdateBlocker();
+		windowFactory.OnWindowClosed += _ => UpdateBlocker();
 	}
 
 	// Events
-	void UpdateBlocker(Window window)
+	void UpdateBlocker()
 	{
-		int activeWindows = Window.ActiveWindows.Count();
+		int activeWindows = windowFactory.ActiveWindows.Count;
 
 		body.gameObject.SetActive(activeWindows > 0);
 		body.SetSiblingIndex(activeWindows - 1);

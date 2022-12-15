@@ -1,4 +1,4 @@
-public class CourseData : ICourseData
+public class CourseData : Data
 {
 	public string Name { get; set; }
 	public string Group { get; set; }

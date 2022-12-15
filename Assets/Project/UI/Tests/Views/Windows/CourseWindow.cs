@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CourseWindow : Window
+public class CourseWindow : Window<CourseData>
 {
 	[SerializeField] Image preview;
 	[SerializeField] new TMP_Text name;
@@ -11,10 +11,8 @@ public class CourseWindow : Window
 
 	protected override void Init()
 	{
-		ICourseData courseData = data as ICourseData;
-
-		name.text = courseData.Name;
-		group.text = courseData.Group;
-		description.text = courseData.Description;
+		name.text = data.Name;
+		group.text = data.Group;
+		description.text = data.Description;
 	}
 }

@@ -10,7 +10,7 @@ public class CourseList : MonoBehaviour
 	{
 		foreach (CourseData data in FakeLoader.GetCoursesData())
 		{
-			viewFactory.CreateCourseView(data, content);
+			viewFactory.CreateCourse(data, content);
 		}
 	}
 

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -6,7 +5,7 @@ using Zenject;
 [RequireComponent(typeof(Button))]
 public class SettingsButton : MonoBehaviour
 {
-	[Inject] ViewFactory viewFactory;
+	[Inject] WindowFactory windowFactory;
 
 	// Unity
 	private void Start()
@@ -17,6 +16,6 @@ public class SettingsButton : MonoBehaviour
 	// Events
 	private void Click()
 	{
-		viewFactory.CreateSettingsWindow(FakeLoader.GetSettingsData());
+		windowFactory.CreateSettingsWindow(FakeLoader.GetSettingsData());
 	}
 }

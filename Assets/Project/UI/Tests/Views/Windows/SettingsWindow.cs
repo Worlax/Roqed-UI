@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SettingsWindow : Window
+public class SettingsWindow : Window<SettingsData>
 {
 	// System
 	[SerializeField] TMP_Dropdown language;
@@ -30,16 +30,14 @@ public class SettingsWindow : Window
 
 	protected override void Init()
 	{
-		ISettingsData settingsData = data as ISettingsData;
+		language.AddOptions(data.Languages.ToList());
+		language.value = language.options.FindIndex(x => x.text == data.ActiveLanguage);
 
-		language.AddOptions(settingsData.Languages.ToList());
-		language.value = language.options.FindIndex(x => x.text == settingsData.ActiveLanguage);
+		savePath.text = data.SavePath;
+		email.text = data.Email;
 
-		savePath.text = settingsData.SavePath;
-		email.text = settingsData.Email;
-
-		interactive.isOn = settingsData.Interactive;
-		betaFeatures.isOn = settingsData.BetaFeatures;
-		offlineMode.isOn = settingsData.OfflineMode;
+		interactive.isOn = data.Interactive;
+		betaFeatures.isOn = data.BetaFeatures;
+		offlineMode.isOn = data.OfflineMode;
 	}
 }

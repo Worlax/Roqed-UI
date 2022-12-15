@@ -4,17 +4,15 @@ using TMPro;
 using Zenject;
 
 [RequireComponent(typeof(Button))]
-public class CourseView : View
+public class CourseView : View<CourseData>
 {
 	[SerializeField] Image preview;
 	[SerializeField] new TMP_Text name;
-	[Inject] ViewFactory viewFactory;
+	[Inject] WindowFactory windowFactory;
 
 	protected override void Init()
 	{
-		ICourseData courseData = data as ICourseData;
-
-		name.text = courseData.Name;
+		name.text = data.Name;
 	}
 
 	// Unity
@@ -26,6 +24,6 @@ public class CourseView : View
 	// Events
 	void OnClick()
 	{
-		viewFactory.CreateCourseWindow(data as ICourseData);
+		windowFactory.CreateCourseWindow(data);
 	}
 }
