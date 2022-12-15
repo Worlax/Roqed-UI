@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Zenject;
 
 public class SettingsWindow : Window<SettingsData>
 {
@@ -28,8 +29,16 @@ public class SettingsWindow : Window<SettingsData>
 
 	[SerializeField] Toggle enableVoice;
 
+	// Other
+	[SerializeField] Transform licenseContent;
+	[Inject] ViewFactory viewFactory;
+
 	protected override void Init()
 	{
+		// Licenst
+		viewFactory.CreateLicenseView(licenseContent);
+
+		// Settings
 		language.AddOptions(data.Languages.ToList());
 		language.value = language.options.FindIndex(x => x.text == data.ActiveLanguage);
 

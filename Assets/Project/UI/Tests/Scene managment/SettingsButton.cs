@@ -16,6 +16,6 @@ public class SettingsButton : MonoBehaviour
 	// Events
 	private void Click()
 	{
-		windowFactory.CreateSettingsWindow(FakeLoader.GetSettingsData());
+		windowFactory.CreateSettingsWindow();
 	}
 }

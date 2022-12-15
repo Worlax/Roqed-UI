@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public static class FakeLoader
+public static class FakeDataLoader
 {
 	public static SettingsData GetSettingsData()
 	{
@@ -30,6 +30,17 @@ public static class FakeLoader
 			VoiceVolume = 0.1f,
 
 			EnableVoice = false
+		};
+	}
+
+	public static LicenseData GetLicenseData()
+	{
+		return new LicenseData()
+		{
+			UserName = "CoolUser",
+			Key = "ABCOOL",
+			ActivationDate = new System.DateTime(2023, 1, 1),
+			ValidityDays = 180
 		};
 	}
 

@@ -4,9 +4,12 @@ using Zenject;
 public class ViewFactory : MonoBehaviour
 {
 	[SerializeField] CourseView courseView;
+	[SerializeField] LicenseView licenseView;
 	[Inject] DiContainer diContainer;
+	[Inject] DataBase dataBase;
 
-	public CourseView CreateCourse(CourseData data, Transform parent) => Create(courseView, data, parent) as CourseView;
+	public CourseView CreateCourseView(CourseData data, Transform parent) => Create(courseView, data, parent) as CourseView;
+	public LicenseView CreateLicenseView(Transform parent) => Create(licenseView, dataBase.licenseData, parent) as LicenseView;
 
 	View<T> Create<T>(View<T> prefab, Data data, Transform parent) where T : Data
 	{
