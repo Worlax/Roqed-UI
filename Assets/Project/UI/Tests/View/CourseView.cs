@@ -26,13 +26,6 @@ public class CourseView : View
 	// Events
 	void OnClick()
 	{
-		print("data " + data == null);
-		print("viewFactory " + viewFactory == null);
-		print("data as ICourseData " + (data as ICourseData) == null);
-
-		if (data == null) print("data");
-		if (viewFactory == null) print("viewFactory");
-		if ((data as ICourseData) == null) print("(data as ICourseData)");
 		viewFactory.CreateCourseWindow(data as ICourseData);
 	}
 }

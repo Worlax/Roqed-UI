@@ -10,7 +10,7 @@ public abstract class Window : View
 	public static Action<Window> OnCreated;
 	public static Action<Window> OnClosed;
 
-	static List<Window> activeWindows;
+	static List<Window> activeWindows = new List<Window>();
 	public static IEnumerable<Window> ActiveWindows => activeWindows;
 
 	public void Close()
