@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88799178}
   - component: {fileID: 88799179}
+  - component: {fileID: 88799180}
   m_Layer: 5
   m_Name: Control buttons
   m_TagString: Untagged
@@ -354,6 +355,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &88799180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88799177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec94eb3fb67b0d4a9723876ac00eb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugReport: {fileID: 1160315470}
+  hide: {fileID: 1867267538}
+  scale: {fileID: 2043380077}
+  close: {fileID: 103911243}
 --- !u!1 &89772367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,6 +2861,7 @@ MonoBehaviour:
   content: {fileID: 1398009919}
   courseWindow: {fileID: 7404587527988568510, guid: a7e26452d9cfb564c856d56c1a50a898, type: 3}
   settingsWindow: {fileID: 4664022263657531612, guid: cf2fb7349e7a376458e52a17a06a5d70, type: 3}
+  bugReportWindow: {fileID: 0}
 --- !u!1 &1149252713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,7 +2993,7 @@ GameObject:
   - component: {fileID: 1160315471}
   - component: {fileID: 1160315470}
   m_Layer: 5
-  m_Name: Report bug
+  m_Name: Bug report
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

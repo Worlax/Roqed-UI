@@ -8,6 +8,8 @@ public class WindowFactory : MonoBehaviour
 	[SerializeField] Transform content;
 	[SerializeField] CourseWindow courseWindow;
 	[SerializeField] SettingsWindow settingsWindow;
+	[SerializeField] BugReportWindow bugReportWindow;
+
 	[Inject] DiContainer diContainer;
 	[Inject] DataBase dataBase;
 
@@ -21,6 +23,7 @@ public class WindowFactory : MonoBehaviour
 	// Creation
 	public void CreateCourseWindow(CourseData data) => CreateWindow(courseWindow, data);
 	public void CreateSettingsWindow() => CreateWindow(settingsWindow, dataBase.settingsData);
+	public void CreateBugReportWindow() => CreateWindow(bugReportWindow, dataBase.BugReportData);
 
 	Window<T> CreateWindow<T>(Window<T> prefab, Data data) where T : Data
 	{

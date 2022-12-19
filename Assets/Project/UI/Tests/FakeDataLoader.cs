@@ -44,6 +44,11 @@ public static class FakeDataLoader
 		};
 	}
 
+	public static BugReportData GetBugReportData()
+	{
+		return new BugReportData() { Email = "hehe@gmail.com" };
+	}
+
 	public static CourseData[] GetCoursesData()
 	{
 		return new CourseData[7]

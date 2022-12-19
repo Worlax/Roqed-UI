@@ -19,5 +19,6 @@ public class MainMenuInjector : MonoInstaller
 		Container.Bind<DataBase>().FromNew().AsSingle();
 		Container.Bind<SettingsData>().FromMethod(FakeDataLoader.GetSettingsData);
 		Container.Bind<LicenseData>().FromMethod(FakeDataLoader.GetLicenseData);
+		Container.Bind<BugReportData>().FromMethod(FakeDataLoader.GetBugReportData);
 	}
 }
