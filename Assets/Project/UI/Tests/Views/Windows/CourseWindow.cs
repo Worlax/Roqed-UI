@@ -11,7 +11,7 @@ public class CourseWindow : Window<CourseData>
 	[SerializeField] TMP_Text description;
 	[SerializeField] Button play;
 
-	[Inject] CourseLoader courseLoader;
+	[Inject] SceneLoader courseLoader;
 
 	protected override void Init()
 	{
@@ -29,6 +29,6 @@ public class CourseWindow : Window<CourseData>
 	// Events
 	void Play()
 	{
-		courseLoader.Load(data);
+		courseLoader.LoadCourse(data);
 	}
 }
