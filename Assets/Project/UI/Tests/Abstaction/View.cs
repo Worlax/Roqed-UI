@@ -1,5 +1,4 @@
 using UnityEngine;
-using Zenject;
 
 public abstract class View<T> : MonoBehaviour where T : Data
 {

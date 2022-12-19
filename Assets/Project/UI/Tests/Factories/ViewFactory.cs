@@ -5,6 +5,7 @@ public class ViewFactory : MonoBehaviour
 {
 	[SerializeField] CourseView courseView;
 	[SerializeField] LicenseView licenseView;
+
 	[Inject] DiContainer diContainer;
 	[Inject] DataBase dataBase;
 

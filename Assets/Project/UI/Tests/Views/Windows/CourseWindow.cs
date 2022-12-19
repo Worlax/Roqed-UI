@@ -30,5 +30,6 @@ public class CourseWindow : Window<CourseData>
 	void Play()
 	{
 		courseLoader.LoadCourse(data);
+		Close();
 	}
 }

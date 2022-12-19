@@ -25,6 +25,6 @@ public class BugReportWindow : Window<BugReportData>
 	// Events
 	void Report()
 	{
-
+		Close();
 	}
 }
