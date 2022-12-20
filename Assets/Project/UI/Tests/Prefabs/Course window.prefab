@@ -758,7 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1932411943567671257}
   preview: {fileID: 1959760187548616075}
-  name: {fileID: 8788423263174611047}
+  label: {fileID: 8788423263174611047}
   group: {fileID: 1356010429885065085}
   description: {fileID: 3587761414197075348}
   play: {fileID: 6797180929555322947}

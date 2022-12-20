@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preview: {fileID: 9046186850314156701}
-  name: {fileID: 4155963937616010356}
+  label: {fileID: 4155963937616010356}
 --- !u!1 &3586797924912259574
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,9 +6,9 @@ using Zenject;
 public class WindowFactory : MonoBehaviour
 {
 	[SerializeField] Transform content;
-	[SerializeField] CourseWindow courseWindow;
-	[SerializeField] SettingsWindow settingsWindow;
-	[SerializeField] BugReportWindow bugReportWindow;
+	[SerializeField] CourseWindow coursePrefab;
+	[SerializeField] SettingsWindow settingsPrefab;
+	[SerializeField] BugReportWindow bugReportPrefab;
 
 	[Inject] DiContainer diContainer;
 	[Inject] DataBase dataBase;
@@ -21,11 +21,11 @@ public class WindowFactory : MonoBehaviour
 	public Action<Window<Data>> OnWindowClosed;
 
 	// Creation
-	public void CreateCourseWindow(CourseData data) => CreateWindow(courseWindow, data);
-	public void CreateSettingsWindow() => CreateWindow(settingsWindow, dataBase.settingsData);
-	public void CreateBugReportWindow() => CreateWindow(bugReportWindow, dataBase.BugReportData);
+	public void CreateCourse(CourseData data) => Create(coursePrefab, data);
+	public void CreateSettings() => Create(settingsPrefab, dataBase.settingsData);
+	public void CreateBugReport() => Create(bugReportPrefab, dataBase.BugReportData);
 
-	Window<T> CreateWindow<T>(Window<T> prefab, Data data) where T : Data
+	Window<T> Create<T>(Window<T> prefab, Data data) where T : Data
 	{
 		Window<T> window = diContainer.InstantiatePrefab(prefab, content).GetComponent<Window<T>>();
 		window.UpdateData(data as T);

@@ -50,6 +50,6 @@ public class GlobalButtons : MonoBehaviour
 
 	void BugReport()
 	{
-		windowFactory.CreateBugReportWindow();
+		windowFactory.CreateBugReport();
 	}
 }

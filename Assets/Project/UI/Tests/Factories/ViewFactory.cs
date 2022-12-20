@@ -3,14 +3,33 @@ using Zenject;
 
 public class ViewFactory : MonoBehaviour
 {
-	[SerializeField] CourseView courseView;
-	[SerializeField] LicenseView licenseView;
+	[SerializeField] LicenseView licensePrefab;
+	[SerializeField] CourseView coursePrefab;
+	[SerializeField] AnimationView animationSmallPrefab;
+	[SerializeField] AnimationView animationBigPrefab;
 
 	[Inject] DiContainer diContainer;
 	[Inject] DataBase dataBase;
 
-	public CourseView CreateCourseView(CourseData data, Transform parent) => Create(courseView, data, parent) as CourseView;
-	public LicenseView CreateLicenseView(Transform parent) => Create(licenseView, dataBase.licenseData, parent) as LicenseView;
+	public enum AnimationType
+	{
+		Small,
+		Big
+	}
+
+	public CourseView CreateCourse(CourseData data, Transform parent) => Create(coursePrefab, data, parent) as CourseView;
+	public LicenseView CreateLicense(Transform parent) => Create(licensePrefab, dataBase.licenseData, parent) as LicenseView;
+	public AnimationView CreateAnimation(AnimationData data, Transform parent, AnimationType type) => Create(GetAnimationPrefab(type), data, parent) as AnimationView;
+
+	AnimationView GetAnimationPrefab(AnimationType type)
+	{
+		switch (type)
+		{
+			case AnimationType.Small: return animationSmallPrefab;
+			case AnimationType.Big: return animationBigPrefab;
+			default: return null;
+		}
+	}
 
 	View<T> Create<T>(View<T> prefab, Data data, Transform parent) where T : Data
 	{

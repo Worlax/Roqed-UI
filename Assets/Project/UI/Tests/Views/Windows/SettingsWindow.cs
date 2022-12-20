@@ -36,7 +36,7 @@ public class SettingsWindow : Window<SettingsData>
 	protected override void Init()
 	{
 		// Licenst
-		viewFactory.CreateLicenseView(licenseContent);
+		viewFactory.CreateLicense(licenseContent);
 
 		// Settings
 		language.AddOptions(data.Languages.ToList());

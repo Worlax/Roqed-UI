@@ -7,12 +7,12 @@ using Zenject;
 public class CourseView : View<CourseData>
 {
 	[SerializeField] Image preview;
-	[SerializeField] new TMP_Text name;
+	[SerializeField] TMP_Text label;
 	[Inject] WindowFactory windowFactory;
 
 	protected override void Init()
 	{
-		name.text = data.Name;
+		label.text = data.Name;
 	}
 
 	// Unity
@@ -24,6 +24,6 @@ public class CourseView : View<CourseData>
 	// Events
 	void OnClick()
 	{
-		windowFactory.CreateCourseWindow(data);
+		windowFactory.CreateCourse(data);
 	}
 }

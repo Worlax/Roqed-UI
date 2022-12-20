@@ -6,7 +6,7 @@ using Zenject;
 public class CourseWindow : Window<CourseData>
 {
 	[SerializeField] Image preview;
-	[SerializeField] new TMP_Text name;
+	[SerializeField] TMP_Text label;
 	[SerializeField] TMP_Text group;
 	[SerializeField] TMP_Text description;
 	[SerializeField] Button play;
@@ -15,7 +15,7 @@ public class CourseWindow : Window<CourseData>
 
 	protected override void Init()
 	{
-		name.text = data.Name;
+		label.text = data.Name;
 		group.text = data.Group;
 		description.text = data.Description;
 	}

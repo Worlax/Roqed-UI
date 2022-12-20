@@ -33,6 +33,35 @@ public static class FakeDataLoader
 		};
 	}
 
+	static AnimationData[] animationData;
+
+	public static AnimationData[] GetAllAnimations(CourseData courseData)
+	{
+		if (animationData == null)
+		{
+			animationData = new AnimationData[7]
+			{
+				CreateRundomAnimationData(),
+				CreateRundomAnimationData(),
+				CreateRundomAnimationData(),
+				CreateRundomAnimationData(),
+				CreateRundomAnimationData(),
+				CreateRundomAnimationData(),
+				CreateRundomAnimationData()
+			};
+		}
+
+		return animationData;
+	}
+
+	static AnimationData CreateRundomAnimationData()
+	{
+		return new AnimationData()
+		{
+			Name = GetRandomString()
+		};
+	}
+
 	public static LicenseData GetLicenseData()
 	{
 		return new LicenseData()
@@ -49,18 +78,25 @@ public static class FakeDataLoader
 		return new BugReportData() { Email = "hehe@gmail.com" };
 	}
 
+	static CourseData[] courseData;
+
 	public static CourseData[] GetCoursesData()
 	{
-		return new CourseData[7]
+		if (courseData == null)
 		{
-			CreateRandomCourseData(),
-			CreateRandomCourseData(),
-			CreateRandomCourseData(),
-			CreateRandomCourseData(),
-			CreateRandomCourseData(),
-			CreateRandomCourseData(),
-			CreateRandomCourseData()
-		};
+			courseData = new CourseData[7]
+			{
+				CreateRandomCourseData(),
+				CreateRandomCourseData(),
+				CreateRandomCourseData(),
+				CreateRandomCourseData(),
+				CreateRandomCourseData(),
+				CreateRandomCourseData(),
+				CreateRandomCourseData()
+			};
+		}
+
+		return courseData;
 	}
 
 	static CourseData CreateRandomCourseData()

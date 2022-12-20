@@ -923,8 +923,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bad3a570d40a3349b279ec989ae3687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  courseView: {fileID: 3784579630475638050, guid: 80defbab65a86534c970c4cdc8dc9ede, type: 3}
-  licenseView: {fileID: 4545050572371658509, guid: e7cc4852e5190024f85bca55d18ee69a, type: 3}
+  licensePrefab: {fileID: 4545050572371658509, guid: e7cc4852e5190024f85bca55d18ee69a, type: 3}
+  coursePrefab: {fileID: 3784579630475638050, guid: 80defbab65a86534c970c4cdc8dc9ede, type: 3}
+  animationSmallPrefab: {fileID: 5788713877568226617, guid: a8e67f81f644ef144b7932dde17c5ec1, type: 3}
+  animationBigPrefab: {fileID: 1975553320475670994, guid: 7d335cdbf4dc109429690fd20ce44f85, type: 3}
 --- !u!4 &4466954435357640406
 Transform:
   m_ObjectHideFlags: 0
@@ -1092,9 +1094,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 4466954435304294942}
-  courseWindow: {fileID: 7404587527988568510, guid: a7e26452d9cfb564c856d56c1a50a898, type: 3}
-  settingsWindow: {fileID: 4664022263657531612, guid: cf2fb7349e7a376458e52a17a06a5d70, type: 3}
-  bugReportWindow: {fileID: 5492227559343439341, guid: 82de81abcc6e7324b9c08bfa0e54fbb0, type: 3}
+  coursePrefab: {fileID: 7404587527988568510, guid: a7e26452d9cfb564c856d56c1a50a898, type: 3}
+  settingsPrefab: {fileID: 4664022263657531612, guid: cf2fb7349e7a376458e52a17a06a5d70, type: 3}
+  bugReportPrefab: {fileID: 5492227559343439341, guid: 82de81abcc6e7324b9c08bfa0e54fbb0, type: 3}
 --- !u!4 &4466954435589011161
 Transform:
   m_ObjectHideFlags: 0
