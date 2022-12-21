@@ -8,6 +8,7 @@ using Zenject;
 public class GlobalButtons : MonoBehaviour
 {
 	[SerializeField] Button bugReport;
+	[SerializeField] Button settings;
 	[SerializeField] Button hide;
 	[SerializeField] Button scale;
 	[SerializeField] Button close;
@@ -25,10 +26,12 @@ public class GlobalButtons : MonoBehaviour
 	// Unity
 	private void Start()
 	{
-		close.onClick.AddListener(Close);
+		bugReport.onClick.AddListener(BugReport);
+		settings.onClick.AddListener(Settings);
+
 		hide.onClick.AddListener(Hide);
 		scale.onClick.AddListener(Scale);
-		bugReport.onClick.AddListener(BugReport);
+		close.onClick.AddListener(Close);
 	}
 
 	// Events
@@ -60,5 +63,10 @@ public class GlobalButtons : MonoBehaviour
 	void BugReport()
 	{
 		windowFactory.CreateBugReport();
+	}
+
+	void Settings()
+	{
+		windowFactory.CreateSettings();
 	}
 }
