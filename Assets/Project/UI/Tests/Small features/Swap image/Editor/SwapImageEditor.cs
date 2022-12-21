@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(ToggleImage))]
 [CanEditMultipleObjects]
-public class ToggleImageEditor : Editor
+[CustomEditor(typeof(SwapImage), true)]
+public class SwapImageEditor : Editor
 {
 	SerializedProperty useSprites;
 

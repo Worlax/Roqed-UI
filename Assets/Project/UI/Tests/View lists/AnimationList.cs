@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class AnimationList : MonoBehaviour
 	[Inject] ViewFactory viewFactory;
 
 	static List<AnimationList> activeLists = new List<AnimationList>();
+	public static Action<AnimationView> OnNewAnimationStarted;
 
 	void FillContent()
 	{
@@ -71,6 +73,8 @@ public class AnimationList : MonoBehaviour
 	{
 		if (value)
 		{
+			OnNewAnimationStarted?.Invoke(item);
+
 			foreach (AnimationList list in activeLists)
 			{
 				if (list != this)

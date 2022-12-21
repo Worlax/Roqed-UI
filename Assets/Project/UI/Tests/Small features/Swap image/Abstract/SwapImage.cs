@@ -1,9 +1,9 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Inspector preview is extended in "ToggleImageEditor"
-[RequireComponent(typeof(Toggle))]
-public class ToggleImage : MonoBehaviour
+// Inspector preview is extended in "SwapImageEditor"
+public class SwapImage : MonoBehaviour
 {
 	[SerializeField] bool useSprites = true;
 
@@ -16,16 +16,18 @@ public class ToggleImage : MonoBehaviour
 	[SerializeField] Image imageOn;
 	[SerializeField] Image ImageOff;
 
+	protected virtual void SubscribeSetEvents() { }
+	protected virtual bool GetCurrentValue() { return true; }
+
 	// Unity
-	private void Start()
+	protected virtual void Start()
 	{
-		Toggle toggle = GetComponent<Toggle>();
-		toggle.onValueChanged.AddListener(ValueChanged);
-		ValueChanged(toggle.isOn);
+		SubscribeSetEvents();
+		SetImageState(GetCurrentValue());
 	}
 
 	// Events
-	void ValueChanged(bool value)
+	protected void SetImageState(bool value)
 	{
 		if (useSprites)
 		{

@@ -9,7 +9,9 @@ public class ToggleContent : MonoBehaviour
 	// Unity
 	private void Start()
 	{
-		GetComponent<Toggle>().onValueChanged.AddListener(ValueChanged);
+		Toggle toggle = GetComponent<Toggle>();
+		toggle.onValueChanged.AddListener(ValueChanged);
+		ValueChanged(toggle.isOn);
 	}
 
 	// Events
