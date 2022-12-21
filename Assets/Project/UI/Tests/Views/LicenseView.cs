@@ -12,9 +12,9 @@ public class LicenseView : View<LicenseData>
 	{
 		string yearFormat = "d-MMM-yyyy";
 
-		key.text = data.Key;
-		userName.text = data.UserName;
-		activationDate.text = data.ActivationDate.ToString(yearFormat);
-		expireDate.text = data.ActivationDate.AddDays(data.ValidityDays).ToString(yearFormat);
+		key.text = Data.Key;
+		userName.text = Data.UserName;
+		activationDate.text = Data.ActivationDate.ToString(yearFormat);
+		expireDate.text = Data.ActivationDate.AddDays(Data.ValidityDays).ToString(yearFormat);
 	}
 }

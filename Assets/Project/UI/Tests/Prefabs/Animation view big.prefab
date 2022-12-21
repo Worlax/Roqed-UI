@@ -146,8 +146,9 @@ GameObject:
   - component: {fileID: 8196299659143633119}
   - component: {fileID: 8196299659143633113}
   - component: {fileID: 8196299659143633118}
-  - component: {fileID: 8611711553493398339}
+  - component: {fileID: 8125501456728746603}
   - component: {fileID: 1975553320475670994}
+  - component: {fileID: 7116629885369788668}
   m_Layer: 5
   m_Name: Animation view big
   m_TagString: Untagged
@@ -200,7 +201,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0.47058827, b: 0.8431373, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: -1.5, y: -1.5, z: -1.5, w: -1.5}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8611711553493398339
+--- !u!114 &8125501456728746603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8196299659143633116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -256,9 +257,13 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 8196299659143633118}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  m_IsOn: 0
 --- !u!114 &1975553320475670994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +277,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 8196299658574410329}
+--- !u!114 &7116629885369788668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8196299659143633116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce418cf87f927340850110df4528eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSprites: 0
+  target: {fileID: 0}
+  spriteOn: {fileID: 0}
+  spriteOff: {fileID: 0}
+  imageOn: {fileID: 8196299659451001971}
+  ImageOff: {fileID: 0}
 --- !u!1 &8196299659181152150
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +383,7 @@ GameObject:
   - component: {fileID: 8196299659451001970}
   - component: {fileID: 8196299659451001971}
   m_Layer: 5
-  m_Name: Border
+  m_Name: Selected (border)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

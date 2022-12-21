@@ -33,6 +33,35 @@ public static class FakeDataLoader
 		};
 	}
 
+	static ObjectData[] objectData;
+
+	public static ObjectData[] GetAllObjectData()
+	{
+		if (objectData == null)
+		{
+			objectData = new ObjectData[7]
+			{
+				CreateRandomObjectData(),
+				CreateRandomObjectData(),
+				CreateRandomObjectData(),
+				CreateRandomObjectData(),
+				CreateRandomObjectData(),
+				CreateRandomObjectData(),
+				CreateRandomObjectData()
+			};
+		}
+
+		return objectData;
+	}
+
+	static ObjectData CreateRandomObjectData()
+	{
+		return new ObjectData()
+		{
+			Name = GetRandomString()
+		};
+	}
+
 	static AnimationData[] animationData;
 
 	public static AnimationData[] GetAllAnimations(CourseData courseData)
@@ -41,20 +70,20 @@ public static class FakeDataLoader
 		{
 			animationData = new AnimationData[7]
 			{
-				CreateRundomAnimationData(),
-				CreateRundomAnimationData(),
-				CreateRundomAnimationData(),
-				CreateRundomAnimationData(),
-				CreateRundomAnimationData(),
-				CreateRundomAnimationData(),
-				CreateRundomAnimationData()
+				CreateRandomAnimationData(),
+				CreateRandomAnimationData(),
+				CreateRandomAnimationData(),
+				CreateRandomAnimationData(),
+				CreateRandomAnimationData(),
+				CreateRandomAnimationData(),
+				CreateRandomAnimationData()
 			};
 		}
 
 		return animationData;
 	}
 
-	static AnimationData CreateRundomAnimationData()
+	static AnimationData CreateRandomAnimationData()
 	{
 		return new AnimationData()
 		{

@@ -15,9 +15,9 @@ public class CourseWindow : Window<CourseData>
 
 	protected override void Init()
 	{
-		label.text = data.Name;
-		group.text = data.Group;
-		description.text = data.Description;
+		label.text = Data.Name;
+		group.text = Data.Group;
+		description.text = Data.Description;
 	}
 
 	// Unity
@@ -29,7 +29,7 @@ public class CourseWindow : Window<CourseData>
 	// Events
 	void Play()
 	{
-		courseLoader.LoadCourse(data);
+		courseLoader.LoadCourse(Data);
 		Close();
 	}
 }

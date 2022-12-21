@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 6777259702653394901}
   - component: {fileID: 6777259702653394902}
   m_Layer: 5
-  m_Name: Is selected
+  m_Name: Selected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6777259702653394903
 RectTransform:
   m_ObjectHideFlags: 0
@@ -380,9 +380,10 @@ GameObject:
   - component: {fileID: 6777259703272826557}
   - component: {fileID: 6777259703272826553}
   - component: {fileID: 6777259703272826554}
-  - component: {fileID: 6777259703272826555}
+  - component: {fileID: 8099636674508119192}
   - component: {fileID: 6777259703272826556}
   - component: {fileID: 5788713877568226617}
+  - component: {fileID: 3268935719194699875}
   m_Layer: 5
   m_Name: Animation view small
   m_TagString: Untagged
@@ -436,7 +437,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.90156865, g: 0.9265428, b: 0.9490196, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: -1.5, y: -1.5, z: -1.5, w: -1.5}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -451,7 +452,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6777259703272826555
+--- !u!114 &8099636674508119192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,7 +461,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6777259703272826558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -492,9 +493,13 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6777259703272826554}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  m_IsOn: 0
 --- !u!114 &6777259703272826556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,3 +539,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 6777259702839862187}
+--- !u!114 &3268935719194699875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777259703272826558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce418cf87f927340850110df4528eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSprites: 0
+  target: {fileID: 0}
+  spriteOn: {fileID: 0}
+  spriteOff: {fileID: 0}
+  imageOn: {fileID: 6777259702653394901}
+  ImageOff: {fileID: 0}

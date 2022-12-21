@@ -7,6 +7,7 @@ public class ViewFactory : MonoBehaviour
 	[SerializeField] CourseView coursePrefab;
 	[SerializeField] AnimationView animationSmallPrefab;
 	[SerializeField] AnimationView animationBigPrefab;
+	[SerializeField] ObjectView objectPrefab;
 
 	[Inject] DiContainer diContainer;
 	[Inject] DataBase dataBase;
@@ -20,6 +21,7 @@ public class ViewFactory : MonoBehaviour
 	public CourseView CreateCourse(CourseData data, Transform parent) => Create(coursePrefab, data, parent) as CourseView;
 	public LicenseView CreateLicense(Transform parent) => Create(licensePrefab, dataBase.licenseData, parent) as LicenseView;
 	public AnimationView CreateAnimation(AnimationData data, Transform parent, AnimationType type) => Create(GetAnimationPrefab(type), data, parent) as AnimationView;
+	public ObjectView CreateObject(ObjectData data, Transform parent) => Create(objectPrefab, data, parent) as ObjectView;
 
 	AnimationView GetAnimationPrefab(AnimationType type)
 	{

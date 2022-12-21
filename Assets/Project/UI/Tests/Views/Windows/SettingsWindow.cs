@@ -39,14 +39,14 @@ public class SettingsWindow : Window<SettingsData>
 		viewFactory.CreateLicense(licenseContent);
 
 		// Settings
-		language.AddOptions(data.Languages.ToList());
-		language.value = language.options.FindIndex(x => x.text == data.ActiveLanguage);
+		language.AddOptions(Data.Languages.ToList());
+		language.value = language.options.FindIndex(x => x.text == Data.ActiveLanguage);
 
-		savePath.text = data.SavePath;
-		email.text = data.Email;
+		savePath.text = Data.SavePath;
+		email.text = Data.Email;
 
-		interactive.isOn = data.Interactive;
-		betaFeatures.isOn = data.BetaFeatures;
-		offlineMode.isOn = data.OfflineMode;
+		interactive.isOn = Data.Interactive;
+		betaFeatures.isOn = Data.BetaFeatures;
+		offlineMode.isOn = Data.OfflineMode;
 	}
 }

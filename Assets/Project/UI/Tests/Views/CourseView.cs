@@ -12,7 +12,7 @@ public class CourseView : View<CourseData>
 
 	protected override void Init()
 	{
-		label.text = data.Name;
+		label.text = Data.Name;
 	}
 
 	// Unity
@@ -24,6 +24,6 @@ public class CourseView : View<CourseData>
 	// Events
 	void OnClick()
 	{
-		windowFactory.CreateCourse(data);
+		windowFactory.CreateCourse(Data);
 	}
 }

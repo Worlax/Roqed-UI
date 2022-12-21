@@ -34,7 +34,7 @@ public class ToggleImage : MonoBehaviour
 		else
 		{
 			imageOn.gameObject.SetActive(value);
-			ImageOff.gameObject.SetActive(!value);
+			ImageOff?.gameObject.SetActive(!value);
 		}
 	}
 }

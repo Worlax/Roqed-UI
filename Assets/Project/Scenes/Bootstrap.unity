@@ -927,6 +927,7 @@ MonoBehaviour:
   coursePrefab: {fileID: 3784579630475638050, guid: 80defbab65a86534c970c4cdc8dc9ede, type: 3}
   animationSmallPrefab: {fileID: 5788713877568226617, guid: a8e67f81f644ef144b7932dde17c5ec1, type: 3}
   animationBigPrefab: {fileID: 1975553320475670994, guid: 7d335cdbf4dc109429690fd20ce44f85, type: 3}
+  objectPrefab: {fileID: 2335083801692800186, guid: 0b901d5ae34069f4d969b383e9ee5a15, type: 3}
 --- !u!4 &4466954435357640406
 Transform:
   m_ObjectHideFlags: 0

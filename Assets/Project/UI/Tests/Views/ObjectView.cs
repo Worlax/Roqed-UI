@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class AnimationView : View<AnimationData>
+public class ObjectView : View<ObjectData>
 {
 	[SerializeField] TMP_Text label;
 

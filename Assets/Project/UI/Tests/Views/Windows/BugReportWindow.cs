@@ -12,8 +12,8 @@ public class BugReportWindow : Window<BugReportData>
 
 	protected override void Init()
 	{
-		email.text = data.Email;
-		description.text = data.Description;
+		email.text = Data.Email;
+		description.text = Data.Description;
 	}
 
 	// Unity

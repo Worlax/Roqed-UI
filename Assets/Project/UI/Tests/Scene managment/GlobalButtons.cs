@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -12,6 +13,7 @@ public class GlobalButtons : MonoBehaviour
 	[SerializeField] Button close;
 
 	[Inject] WindowFactory windowFactory;
+	[Inject] SceneLoader sceneLoader;
 
 #if UNITY_STANDALONE_WIN
 	[DllImport("user32.dll")]
@@ -32,7 +34,14 @@ public class GlobalButtons : MonoBehaviour
 	// Events
 	void Close()
 	{
-		Application.Quit();
+		if (SceneManager.GetActiveScene().name == "Main menu")
+		{
+			Application.Quit();
+		}
+		else
+		{
+			sceneLoader.LoadMainMenu();
+		}
 	}
 
 	void Hide()
