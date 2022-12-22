@@ -10,7 +10,10 @@ public class ObjectList : MonoBehaviour
 
 	void FillContent()
 	{
-		foreach (ObjectData data in FakeDataLoader.GetAllObjectData())
+		ObjectData[] objectData = ActiveCourse.Value.ObjectsData;
+		if (objectData == null) { Destroy(gameObject); return; }
+
+		foreach (ObjectData data in objectData)
 		{
 			ObjectView item = viewFactory.CreateObject(data, content);
 			item.GetComponent<Toggle>().group = GetComponent<ToggleGroup>();

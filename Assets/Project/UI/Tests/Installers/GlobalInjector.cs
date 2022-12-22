@@ -30,9 +30,9 @@ public class GlobalInjector : MonoInstaller
 	private void BindData()
 	{
 		Container.Bind<DataBase>().FromNew().AsSingle();
-		Container.Bind<SettingsData>().FromMethod(FakeDataLoader.GetSettingsData);
-		Container.Bind<LicenseData>().FromMethod(FakeDataLoader.GetLicenseData);
-		Container.Bind<BugReportData>().FromMethod(FakeDataLoader.GetBugReportData);
+		Container.Bind<SettingsData>().FromMethod(FakeDataLoader.GetSettings);
+		Container.Bind<LicenseData>().FromMethod(FakeDataLoader.GetLicense);
+		Container.Bind<BugReportData>().FromMethod(FakeDataLoader.GetBugReport);
 	}
 
 	private void BindFactories()

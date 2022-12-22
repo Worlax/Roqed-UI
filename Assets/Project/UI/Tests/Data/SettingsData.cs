@@ -1,28 +1,28 @@
 public class SettingsData : Data
 {
 	// System
-	public string[] Languages { get; set; }
-	public string ActiveLanguage { get; set; }
-	public string SavePath { get; set; }
-	public string Email { get; set; }
+	public string[] Languages;
+	public string ActiveLanguage;
+	public string SavePath;
+	public string Email;
 
-	public bool Interactive { get; set; }
-	public bool BetaFeatures { get; set; }
-	public bool OfflineMode { get; set; }
+	public bool Interactive;
+	public bool BetaFeatures;
+	public bool OfflineMode;
 
 	// Display
-	public string[] Resolutions { get; set; }
-	public string ActiveResolution { get; set; }
-	public string[] GraphicQualitys { get; set; }
-	public string ActiveGraphicQuality { get; set; }
+	public string[] Resolutions;
+	public string ActiveResolution;
+	public string[] GraphicQualitys;
+	public string ActiveGraphicQuality;
 
-	public bool ShowFps { get; set; }
+	public bool ShowFps;
 
 	// Volume
-	public float GeneralVolume { get; set; }
-	public float EffectsVolume { get; set; }
-	public float MusicVolume { get; set; }
-	public float VoiceVolume { get; set; }
+	public float GeneralVolume;
+	public float EffectsVolume;
+	public float MusicVolume;
+	public float VoiceVolume;
 
-	public bool EnableVoice { get; set; }
+	public bool EnableVoice;
 }

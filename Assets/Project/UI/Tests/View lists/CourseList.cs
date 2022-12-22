@@ -8,7 +8,7 @@ public class CourseList : MonoBehaviour
 
 	void FillContent()
 	{
-		foreach (CourseData data in FakeDataLoader.GetCoursesData())
+		foreach (CourseData data in FakeDataLoader.GetAllCourses())
 		{
 			viewFactory.CreateCourse(data, content);
 		}

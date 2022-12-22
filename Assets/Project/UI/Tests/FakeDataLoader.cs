@@ -2,7 +2,13 @@ using UnityEngine;
 
 public static class FakeDataLoader
 {
-	public static SettingsData GetSettingsData()
+	// Get data public
+	public static CourseData[] GetAllCourses()
+	{
+		return FakeDataCreator.CreateMultipleCourses();
+	}
+
+	public static SettingsData GetSettings()
 	{
 		return new SettingsData()
 		{
@@ -33,65 +39,7 @@ public static class FakeDataLoader
 		};
 	}
 
-	static ObjectData[] objectData;
-
-	public static ObjectData[] GetAllObjectData()
-	{
-		if (objectData == null)
-		{
-			objectData = new ObjectData[7]
-			{
-				CreateRandomObjectData(),
-				CreateRandomObjectData(),
-				CreateRandomObjectData(),
-				CreateRandomObjectData(),
-				CreateRandomObjectData(),
-				CreateRandomObjectData(),
-				CreateRandomObjectData()
-			};
-		}
-
-		return objectData;
-	}
-
-	static ObjectData CreateRandomObjectData()
-	{
-		return new ObjectData()
-		{
-			Name = GetRandomString()
-		};
-	}
-
-	static AnimationData[] animationData;
-
-	public static AnimationData[] GetAllAnimations(CourseData courseData)
-	{
-		if (animationData == null)
-		{
-			animationData = new AnimationData[7]
-			{
-				CreateRandomAnimationData(),
-				CreateRandomAnimationData(),
-				CreateRandomAnimationData(),
-				CreateRandomAnimationData(),
-				CreateRandomAnimationData(),
-				CreateRandomAnimationData(),
-				CreateRandomAnimationData()
-			};
-		}
-
-		return animationData;
-	}
-
-	static AnimationData CreateRandomAnimationData()
-	{
-		return new AnimationData()
-		{
-			Name = GetRandomString()
-		};
-	}
-
-	public static LicenseData GetLicenseData()
+	public static LicenseData GetLicense()
 	{
 		return new LicenseData()
 		{
@@ -102,54 +50,8 @@ public static class FakeDataLoader
 		};
 	}
 
-	public static BugReportData GetBugReportData()
+	public static BugReportData GetBugReport()
 	{
 		return new BugReportData() { Email = "hehe@gmail.com" };
-	}
-
-	static CourseData[] courseData;
-
-	public static CourseData[] GetCoursesData()
-	{
-		if (courseData == null)
-		{
-			courseData = new CourseData[7]
-			{
-				CreateRandomCourseData(),
-				CreateRandomCourseData(),
-				CreateRandomCourseData(),
-				CreateRandomCourseData(),
-				CreateRandomCourseData(),
-				CreateRandomCourseData(),
-				CreateRandomCourseData()
-			};
-		}
-
-		return courseData;
-	}
-
-	static CourseData CreateRandomCourseData()
-	{
-		return new CourseData()
-		{
-			Name = GetRandomString(),
-			Group = GetRandomString(),
-			Description = GetRandomString()
-		};
-	}
-
-	static string GetRandomString()
-	{
-		string characters = "abcdefghijklmnopqrstuvwxyz";
-		int stringLength = Random.Range(8, 30);
-
-		string result = "";
-
-		for (int i = 0; i < stringLength; ++i)
-		{
-			result += characters[Random.Range(0, characters.Length - 1)];
-		}
-
-		return result;
 	}
 }

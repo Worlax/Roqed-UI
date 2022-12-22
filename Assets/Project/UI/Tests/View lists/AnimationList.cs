@@ -16,7 +16,10 @@ public class AnimationList : MonoBehaviour
 
 	void FillContent()
 	{
-		foreach (AnimationData data in FakeDataLoader.GetAllAnimations(null))
+		AnimationData[] animationData = ActiveCourse.Value.AnimtaionsData;
+		if (animationData == null) { Destroy(gameObject); return; }
+
+		foreach (AnimationData data in animationData)
 		{
 			AnimationView item = viewFactory.CreateAnimation(data, content, itemsType);
 
