@@ -35,6 +35,11 @@ public class SettingsWindow : Window<SettingsData>
 
 	protected override void Init()
 	{
+<<<<<<< Updated upstream
+=======
+		base.Init();
+
+>>>>>>> Stashed changes
 		// Licenst
 		viewFactory.CreateLicense(licenseContent);
 

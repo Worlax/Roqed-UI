@@ -1,14 +1,14 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using Zenject;
 
-[RequireComponent(typeof(Button))]
-public class CourseView : View<CourseData>
+[SerializeField]
+public class InstrumentView : View<InstrumentData>
 {
-	[SerializeField] Image preview;
 	[SerializeField] TMP_Text label;
-	[Inject] WindowFactory windowFactory;
+
+	public Action OnClicked;
 
 	protected override void Init()
 	{
@@ -17,7 +17,7 @@ public class CourseView : View<CourseData>
 		base.Init();
 
 >>>>>>> Stashed changes
-		label.text = Data.Name;
+		label.name = Data.Name;
 	}
 
 	// Unity
@@ -29,6 +29,6 @@ public class CourseView : View<CourseData>
 	// Events
 	void OnClick()
 	{
-		windowFactory.CreateCourse(Data);
+		OnClicked?.Invoke();
 	}
 }

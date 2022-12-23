@@ -12,6 +12,11 @@ public class BugReportWindow : Window<BugReportData>
 
 	protected override void Init()
 	{
+<<<<<<< Updated upstream
+=======
+		base.Init();
+
+>>>>>>> Stashed changes
 		email.text = Data.Email;
 		description.text = Data.Description;
 	}

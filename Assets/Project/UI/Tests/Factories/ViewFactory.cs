@@ -35,8 +35,11 @@ public class ViewFactory : MonoBehaviour
 
 	View<T> Create<T>(View<T> prefab, Data data, Transform parent) where T : Data
 	{
+		print("11");
 		View<T> view = diContainer.InstantiatePrefab(prefab, parent).GetComponent<View<T>>();
+		print("22");
 		view.UpdateData(data as T);
+		print("33");
 		return view;
 	}
 }

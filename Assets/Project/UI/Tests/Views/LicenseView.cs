@@ -10,6 +10,11 @@ public class LicenseView : View<LicenseData>
 
 	protected override void Init()
 	{
+<<<<<<< Updated upstream
+=======
+		base.Init();
+
+>>>>>>> Stashed changes
 		string yearFormat = "d-MMM-yyyy";
 
 		key.text = Data.Key;
