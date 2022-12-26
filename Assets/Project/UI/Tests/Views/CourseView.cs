@@ -12,11 +12,8 @@ public class CourseView : View<CourseData>
 
 	protected override void Init()
 	{
-<<<<<<< Updated upstream
-=======
 		base.Init();
 
->>>>>>> Stashed changes
 		label.text = Data.Name;
 	}
 

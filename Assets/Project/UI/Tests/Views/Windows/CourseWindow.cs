@@ -15,11 +15,8 @@ public class CourseWindow : Window<CourseData>
 
 	protected override void Init()
 	{
-<<<<<<< Updated upstream
-=======
 		base.Init();
 
->>>>>>> Stashed changes
 		label.text = Data.Name;
 		group.text = Data.Group;
 		description.text = Data.Description;

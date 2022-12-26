@@ -9,16 +9,10 @@ public class SceneLoader : MonoBehaviour
 	const string STUDY = "Study";
 	const string PRACTICE = "Practice";
 
-<<<<<<< Updated upstream
-	private void Start()
-	{
-		ActiveCourse.sceneLoader = this;
-=======
 	private void Awake()
 	{
 		ActiveCourse.sceneLoader = this;
 		LastLoadedCourse = FakeDataLoader.GetAllCourses()[0];
->>>>>>> Stashed changes
 	}
 
 	public void LoadMainMenu()

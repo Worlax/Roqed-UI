@@ -7,11 +7,8 @@ public class AnimationView : View<AnimationData>
 
 	protected override void Init()
 	{
-<<<<<<< Updated upstream
-=======
 		base.Init();
 
->>>>>>> Stashed changes
 		label.text = Data.Name;
 	}
 }

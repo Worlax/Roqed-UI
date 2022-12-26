@@ -12,11 +12,8 @@ public class InstrumentView : View<InstrumentData>
 
 	protected override void Init()
 	{
-<<<<<<< Updated upstream
-=======
 		base.Init();
 
->>>>>>> Stashed changes
 		label.name = Data.Name;
 	}
 

@@ -8,12 +8,8 @@ public class AnimationLabel : MonoBehaviour
 	// Unity
 	private void Start()
 	{
-<<<<<<< Updated upstream
-		AnimationList.OnNewAnimationStarted += NewAnimationStarted;
-=======
 		print("TODO");
 		//AnimationList.OnNewAnimationStarted += NewAnimationStarted;
->>>>>>> Stashed changes
 	}
 
 	// Events

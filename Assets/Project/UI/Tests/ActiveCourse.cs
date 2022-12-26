@@ -10,19 +10,12 @@ public static class ActiveCourse
 	{
 		get
 		{
-<<<<<<< Updated upstream
 			Scene activeScene = SceneManager.GetActiveScene();
 			bool courseIsInUseOnScene = activeScene.name == "Practice" || activeScene.name == "Study";
 
-			return courseIsInUseOnScene ? sceneLoader.LastLoadedCourse : null;
-=======
-			if (sceneLoader == null) Debug.Log("Scene loader rip");
-			Scene activeScene = SceneManager.GetActiveScene();
-			bool courseIsInUseOnScene = activeScene.name == "Practice" || activeScene.name == "Study";
-			if (sceneLoader.LastLoadedCourse == null) Debug.Log("???2");
+			Debug.Log("TODO");
 			//return courseIsInUseOnScene ? sceneLoader.LastLoadedCourse : null;
 			return courseIsInUseOnScene ? sceneLoader.LastLoadedCourse : sceneLoader.LastLoadedCourse;
->>>>>>> Stashed changes
 		}
 	}
 }

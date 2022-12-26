@@ -301,14 +301,7 @@ MonoBehaviour:
   - {fileID: 1439978441}
   - {fileID: 694200751}
   - {fileID: 164102579}
-<<<<<<< Updated upstream
   - {fileID: 1032162899}
-=======
-<<<<<<< Updated upstream
-=======
-  - {fileID: 1032162899}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 --- !u!1 &164102578
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,21 +798,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-<<<<<<< Updated upstream
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -14}
-=======
-<<<<<<< Updated upstream
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-=======
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -14}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &192954821
 MonoBehaviour:
@@ -4605,15 +4586,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-<<<<<<< Updated upstream
   m_SizeDelta: {x: -1802.8594, y: 0}
-=======
-<<<<<<< Updated upstream
-  m_SizeDelta: {x: 0, y: 0}
-=======
-  m_SizeDelta: {x: -1802.8594, y: 0}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1016572778
 MonoBehaviour:
@@ -4799,33 +4772,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1032162899}
-<<<<<<< Updated upstream
   - component: {fileID: 1032162902}
   - component: {fileID: 1032162900}
-=======
-<<<<<<< Updated upstream
-  - component: {fileID: 1032162900}
-  - component: {fileID: 1032162902}
-=======
-  - component: {fileID: 1032162902}
-  - component: {fileID: 1032162900}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_Layer: 5
   m_Name: Animation list
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< Updated upstream
   m_IsActive: 0
-=======
-<<<<<<< Updated upstream
-  m_IsActive: 1
-=======
-  m_IsActive: 0
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 --- !u!224 &1032162899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4995,18 +4950,8 @@ GameObject:
   - component: {fileID: 1065736635}
   - component: {fileID: 1065736634}
   - component: {fileID: 1065736633}
-<<<<<<< Updated upstream
   - component: {fileID: 1065736636}
   - component: {fileID: 1065736632}
-=======
-<<<<<<< Updated upstream
-  - component: {fileID: 1065736632}
-  - component: {fileID: 1065736636}
-=======
-  - component: {fileID: 1065736636}
-  - component: {fileID: 1065736632}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   - component: {fileID: 1065736637}
   m_Layer: 5
   m_Name: Auto-exploration
@@ -5170,14 +5115,7 @@ MonoBehaviour:
   - {fileID: 694200751}
   - {fileID: 1942187685}
   - {fileID: 164102579}
-<<<<<<< Updated upstream
   - {fileID: 1432429766}
-=======
-<<<<<<< Updated upstream
-=======
-  - {fileID: 1432429766}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 --- !u!1 &1066785063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5425,15 +5363,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-<<<<<<< Updated upstream
   m_AnchorMax: {x: 1, y: 1}
-=======
-<<<<<<< Updated upstream
-  m_AnchorMax: {x: 0, y: 0}
-=======
-  m_AnchorMax: {x: 1, y: 1}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6150,21 +6080,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-<<<<<<< Updated upstream
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -14}
-=======
-<<<<<<< Updated upstream
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-=======
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -14}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1308988663
 MonoBehaviour:
@@ -7163,29 +7081,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1432429766}
   - component: {fileID: 1432429767}
-<<<<<<< Updated upstream
   - component: {fileID: 1432429768}
-=======
-<<<<<<< Updated upstream
-=======
-  - component: {fileID: 1432429768}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_Layer: 5
   m_Name: Object list
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< Updated upstream
   m_IsActive: 0
-=======
-<<<<<<< Updated upstream
-  m_IsActive: 1
-=======
-  m_IsActive: 0
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 --- !u!224 &1432429766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7220,11 +7123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 0
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 --- !u!114 &1432429768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7238,10 +7136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 1016572777}
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 --- !u!1 &1439978440
 GameObject:
   m_ObjectHideFlags: 0
@@ -9036,15 +8930,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-<<<<<<< Updated upstream
   m_AnchorMax: {x: 1, y: 1}
-=======
-<<<<<<< Updated upstream
-  m_AnchorMax: {x: 0, y: 0}
-=======
-  m_AnchorMax: {x: 1, y: 1}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9864,15 +9750,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-<<<<<<< Updated upstream
   m_SizeDelta: {x: -1802.8594, y: 0}
-=======
-<<<<<<< Updated upstream
-  m_SizeDelta: {x: 0, y: 0}
-=======
-  m_SizeDelta: {x: -1802.8594, y: 0}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1883281940
 MonoBehaviour:

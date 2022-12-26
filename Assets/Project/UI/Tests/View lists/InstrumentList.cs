@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-public class InstrumentList
-{
-
-=======
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,5 +12,4 @@ public class InstrumentList : ViewListSynchronized<InstrumentData>
 	{
 		throw new System.NotImplementedException();
 	}
->>>>>>> Stashed changes
 }

@@ -7,11 +7,8 @@ public class ObjectView : View<ObjectData>
 
 	protected override void Init()
 	{
-<<<<<<< Updated upstream
-=======
 		base.Init();
 
->>>>>>> Stashed changes
 		label.text = Data.Name;
 	}
 }

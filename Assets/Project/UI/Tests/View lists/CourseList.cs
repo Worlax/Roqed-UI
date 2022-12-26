@@ -1,27 +1,3 @@
-<<<<<<< Updated upstream
-using UnityEngine;
-using Zenject;
-
-public class CourseList : MonoBehaviour
-{
-	[SerializeField] Transform content;
-	[Inject] ViewFactory viewFactory;
-
-	void FillContent()
-	{
-		foreach (CourseData data in FakeDataLoader.GetAllCourses())
-		{
-			viewFactory.CreateCourse(data, content);
-		}
-	}
-
-	// Unity
-	private void Start()
-	{
-		FillContent();
-	}
-}
-=======
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -47,4 +23,3 @@ public class CourseList : ViewListSynchronized<CourseData>
 		return viewFactory.CreateCourse(data as CourseData, parent);
 	}
 }
->>>>>>> Stashed changes
