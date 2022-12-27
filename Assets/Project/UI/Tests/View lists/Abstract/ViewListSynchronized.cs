@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 {
-	[SerializeField] bool uniqueSynchronization;
-	[SerializeField] [Min(0)] int uniqueSynchronizationId;
+	[SerializeField] [HideInInspector] bool uniqueSynchronization;
+	[SerializeField] [HideInInspector] [Min(0)] int uniqueSynchronizationId;
 
 	int synchrionizationId;
 	static Dictionary<int, List<T>> synchronizedItemsDictonary = new Dictionary<int, List<T>>();

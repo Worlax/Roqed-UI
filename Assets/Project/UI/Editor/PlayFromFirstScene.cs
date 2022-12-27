@@ -16,14 +16,14 @@ public static class PlayFromFristScene
 	static void PlayFromFirstSceneCheckMenu()
 	{
 		playFromFirstScene = !playFromFirstScene;
-		Menu.SetChecked(menuName, playFromFirstScene);
+		UnityEditor.Menu.SetChecked(menuName, playFromFirstScene);
 	}
 
 	// The menu won't be gray out, we use this validate method for update check state
 	[MenuItem(menuName, true, 175)]
 	static bool PlayFromFirstSceneCheckMenuValidate()
 	{
-		Menu.SetChecked(menuName, playFromFirstScene);
+		UnityEditor.Menu.SetChecked(menuName, playFromFirstScene);
 		return true;
 	}
 

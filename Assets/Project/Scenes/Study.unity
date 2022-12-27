@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 46229436}
   - component: {fileID: 46229439}
   - component: {fileID: 46229438}
-  - component: {fileID: 46229440}
   - component: {fileID: 46229441}
+  - component: {fileID: 46229440}
   m_Layer: 5
   m_Name: Animation
   m_TagString: Untagged
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46229433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d5f177daed67994790e48903f55d8d0, type: 3}
   m_Name: 
@@ -315,8 +315,8 @@ GameObject:
   - component: {fileID: 164102581}
   - component: {fileID: 164102585}
   - component: {fileID: 164102584}
-  - component: {fileID: 164102586}
   - component: {fileID: 164102587}
+  - component: {fileID: 164102586}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -3088,8 +3088,8 @@ GameObject:
   - component: {fileID: 694200757}
   - component: {fileID: 694200756}
   - component: {fileID: 694200755}
-  - component: {fileID: 694200758}
   - component: {fileID: 694200759}
+  - component: {fileID: 694200758}
   m_Layer: 5
   m_Name: Object
   m_TagString: Untagged
@@ -4809,13 +4809,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032162898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 543119faf8e7e9a46aca57eed5c0a920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 1883281939}
-  itemsType: 1
+  uniqueSynchronization: 0
+  uniqueSynchronizationId: 0
+  animationType: 1
 --- !u!114 &1032162902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4950,9 +4952,9 @@ GameObject:
   - component: {fileID: 1065736635}
   - component: {fileID: 1065736634}
   - component: {fileID: 1065736633}
-  - component: {fileID: 1065736636}
   - component: {fileID: 1065736632}
   - component: {fileID: 1065736637}
+  - component: {fileID: 1065736636}
   m_Layer: 5
   m_Name: Auto-exploration
   m_TagString: Untagged
@@ -5765,7 +5767,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1232541056}
   - component: {fileID: 1232541058}
-  - component: {fileID: 1232541057}
   m_Layer: 5
   m_Name: Footer
   m_TagString: Untagged
@@ -5795,20 +5796,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 65}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1232541057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232541055}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 0
 --- !u!114 &1232541058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6608,7 +6595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1364845950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6646,13 +6633,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364845949}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 543119faf8e7e9a46aca57eed5c0a920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 1066785064}
-  itemsType: 0
+  uniqueSynchronization: 0
+  uniqueSynchronizationId: 11
+  animationType: 0
 --- !u!114 &1364845954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7130,12 +7119,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432429765}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e661a542967bbd74a9ed9ad47cf1c67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 1016572777}
+  uniqueSynchronization: 0
+  uniqueSynchronizationId: 0
 --- !u!1 &1439978440
 GameObject:
   m_ObjectHideFlags: 0
@@ -8660,8 +8651,8 @@ GameObject:
   - component: {fileID: 1708002891}
   - component: {fileID: 1708002895}
   - component: {fileID: 1708002894}
-  - component: {fileID: 1708002896}
   - component: {fileID: 1708002897}
+  - component: {fileID: 1708002896}
   m_Layer: 5
   m_Name: Interaction
   m_TagString: Untagged
@@ -10195,8 +10186,8 @@ GameObject:
   - component: {fileID: 1942187687}
   - component: {fileID: 1942187691}
   - component: {fileID: 1942187690}
-  - component: {fileID: 1942187692}
   - component: {fileID: 1942187693}
+  - component: {fileID: 1942187692}
   m_Layer: 5
   m_Name: Annotation
   m_TagString: Untagged
@@ -10368,8 +10359,8 @@ GameObject:
   - component: {fileID: 1967507652}
   - component: {fileID: 1967507651}
   - component: {fileID: 1967507650}
-  - component: {fileID: 1967507654}
   - component: {fileID: 1967507655}
+  - component: {fileID: 1967507654}
   m_Layer: 5
   m_Name: Exploration
   m_TagString: Untagged
@@ -11426,7 +11417,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12723,7 +12714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &9017372956249561476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12731,12 +12722,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9017372956249561475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e661a542967bbd74a9ed9ad47cf1c67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 9017372954609329622}
+  uniqueSynchronization: 0
+  uniqueSynchronizationId: 0
 --- !u!114 &9017372956249561477
 MonoBehaviour:
   m_ObjectHideFlags: 0

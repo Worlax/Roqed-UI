@@ -1,20 +1,15 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AutoExplorationMenu : ToggleMenu
 {
-	ObjectData[] data;
-
-	// Unity
-	private void Start()
+	protected override bool NeededOnScene()
 	{
-		data = ActiveCourse.Value.ObjectsData;
-		if (data == null) { Destroy(gameObject); }
+		return database.ActiveCourse.ObjectsData != null;
 	}
 
 	// Events
 	protected override void Toggled(bool value)
 	{
-		
+
 	}
 }

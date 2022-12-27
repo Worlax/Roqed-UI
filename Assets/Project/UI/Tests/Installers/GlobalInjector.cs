@@ -13,9 +13,8 @@ public class GlobalInjector : MonoInstaller
 	{
 		FindReferencesOnScene();
 
-		BindData();
 		BindFactories();
-		BindGeneral();
+		BindServices();
 	}
 
 	private void FindReferencesOnScene()
@@ -27,22 +26,15 @@ public class GlobalInjector : MonoInstaller
 		sceneLoader = services.GetComponentInChildren<SceneLoader>();
 	}
 
-	private void BindData()
-	{
-		Container.Bind<DataBase>().FromNew().AsSingle();
-		Container.Bind<SettingsData>().FromMethod(FakeDataLoader.GetSettings);
-		Container.Bind<LicenseData>().FromMethod(FakeDataLoader.GetLicense);
-		Container.Bind<BugReportData>().FromMethod(FakeDataLoader.GetBugReport);
-	}
-
 	private void BindFactories()
 	{
 		Container.Bind<ViewFactory>().FromComponentOn(viewFactory.gameObject).AsSingle();
 		Container.Bind<WindowFactory>().FromComponentOn(windowFactory.gameObject).AsSingle();
 	}
 
-	private void BindGeneral()
+	private void BindServices()
 	{
+		Container.Bind<Database>().FromNew().AsSingle();
 		Container.Bind<SceneLoader>().FromComponentOn(sceneLoader.gameObject).AsSingle();
 	}
 }

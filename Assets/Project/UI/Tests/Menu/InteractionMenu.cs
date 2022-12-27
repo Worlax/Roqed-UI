@@ -2,13 +2,9 @@ using UnityEngine;
 
 public class InteractionMenu : ToggleMenu
 {
-	ObjectData[] data;
-
-	// Unity
-	private void Start()
+	protected override bool NeededOnScene()
 	{
-		data = ActiveCourse.Value.ObjectsData;
-		if (data == null) { Destroy(gameObject); }
+		return database.ActiveCourse.ObjectsData != null;
 	}
 
 	// Events

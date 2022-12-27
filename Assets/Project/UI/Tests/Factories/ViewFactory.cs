@@ -10,7 +10,7 @@ public class ViewFactory : MonoBehaviour
 	[SerializeField] ObjectView objectPrefab;
 
 	[Inject] DiContainer diContainer;
-	[Inject] DataBase dataBase;
+	[Inject] Database database;
 
 	public enum AnimationType
 	{
@@ -19,7 +19,7 @@ public class ViewFactory : MonoBehaviour
 	}
 
 	public CourseView CreateCourse(CourseData data, Transform parent) => Create(coursePrefab, data, parent) as CourseView;
-	public LicenseView CreateLicense(Transform parent) => Create(licensePrefab, dataBase.licenseData, parent) as LicenseView;
+	public LicenseView CreateLicense(Transform parent) => Create(licensePrefab, database.LicenseData, parent) as LicenseView;
 	public AnimationView CreateAnimation(AnimationData data, Transform parent, AnimationType type) => Create(GetAnimationPrefab(type), data, parent) as AnimationView;
 	public ObjectView CreateObject(ObjectData data, Transform parent) => Create(objectPrefab, data, parent) as ObjectView;
 

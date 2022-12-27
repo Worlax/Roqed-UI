@@ -4,13 +4,10 @@ using Zenject;
 public class PracticeMenu : ButtonMenu
 {
 	[Inject] SceneLoader sceneLoader;
-	PracticeData data;
 
-	// Unity
-	private void Start()
+	protected override bool NeededOnScene()
 	{
-		data = ActiveCourse.Value.PracticeData;
-		if (data == null) { Destroy(gameObject); }
+		return database.ActiveCourse.PracticeData != null;
 	}
 
 	// Events

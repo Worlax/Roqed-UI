@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public abstract class ButtonMenu : MonoBehaviour
+public abstract class ButtonMenu : Menu
 {
 	// Unity
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		GetComponent<Button>().onClick.AddListener(Clicked);
 	}
 

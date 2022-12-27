@@ -1,8 +1,23 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
-public class DataBase
+public class Database
 {
-	[Inject] public SettingsData settingsData;
-	[Inject] public LicenseData licenseData;
-	[Inject] public BugReportData BugReportData;
+	[Inject] SceneLoader sceneLoader;
+
+	public SettingsData SettingsData => FakeDataLoader.GetSettings();
+	public LicenseData LicenseData => FakeDataLoader.GetLicense();
+	public BugReportData BugReportData => FakeDataLoader.GetBugReport();
+
+	public CourseData ActiveCourse
+	{
+		get
+		{
+			Scene activeScene = SceneManager.GetActiveScene();
+			bool courseIsInUseOnScene = activeScene.name == "Practice" || activeScene.name == "Study";
+
+			return courseIsInUseOnScene ? sceneLoader.LastLoadedCourse : null;
+		}
+	}
 }

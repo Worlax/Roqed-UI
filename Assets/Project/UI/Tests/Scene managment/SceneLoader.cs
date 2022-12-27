@@ -11,7 +11,6 @@ public class SceneLoader : MonoBehaviour
 
 	private void Awake()
 	{
-		ActiveCourse.sceneLoader = this;
 		LastLoadedCourse = FakeDataLoader.GetAllCourses()[0];
 	}
 

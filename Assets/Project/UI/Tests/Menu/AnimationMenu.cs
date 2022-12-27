@@ -2,18 +2,14 @@ using UnityEngine;
 
 public class AnimationMenu : ToggleMenu
 {
-	AnimationData[] data;
-
-	// Unity
-	private void Start()
+	protected override bool NeededOnScene()
 	{
-		data = ActiveCourse.Value.AnimtaionsData;
-		if (data == null) { Destroy(gameObject); }
+		return database.ActiveCourse.AnimtaionsData != null;
 	}
 
 	// Events
 	protected override void Toggled(bool value)
 	{
-
+		
 	}
 }

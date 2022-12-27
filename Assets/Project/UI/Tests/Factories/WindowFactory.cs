@@ -11,7 +11,7 @@ public class WindowFactory : MonoBehaviour
 	[SerializeField] BugReportWindow bugReportPrefab;
 
 	[Inject] DiContainer diContainer;
-	[Inject] DataBase dataBase;
+	[Inject] Database database;
 
 	List<Window<Data>> activeWindows = new List<Window<Data>>();
 	public IReadOnlyList<Window<Data>> ActiveWindows => activeWindows;
@@ -22,8 +22,8 @@ public class WindowFactory : MonoBehaviour
 
 	// Creation
 	public void CreateCourse(CourseData data) => Create(coursePrefab, data);
-	public void CreateSettings() => Create(settingsPrefab, dataBase.settingsData);
-	public void CreateBugReport() => Create(bugReportPrefab, dataBase.BugReportData);
+	public void CreateSettings() => Create(settingsPrefab, database.SettingsData);
+	public void CreateBugReport() => Create(bugReportPrefab, database.BugReportData);
 
 	Window<T> Create<T>(Window<T> prefab, Data data) where T : Data
 	{

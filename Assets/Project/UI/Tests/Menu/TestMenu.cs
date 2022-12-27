@@ -1,14 +1,11 @@
 using UnityEngine;
+using Zenject;
 
 public class TestMenu : ToggleMenu
 {
-	TestData[] data;
-
-	// Unity
-	private void Start()
+	protected override bool NeededOnScene()
 	{
-		data = ActiveCourse.Value.TestsData;
-		if (data == null) { Destroy(gameObject); }
+		return database.ActiveCourse.TestsData != null;
 	}
 
 	// Events
