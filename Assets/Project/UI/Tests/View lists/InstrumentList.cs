@@ -12,4 +12,9 @@ public class InstrumentList : ViewListSynchronized<InstrumentData>
 	{
 		throw new System.NotImplementedException();
 	}
+
+	protected override bool NeededOnScene()
+	{
+		return true;
+	}
 }

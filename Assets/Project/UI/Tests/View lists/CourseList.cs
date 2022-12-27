@@ -22,4 +22,9 @@ public class CourseList : ViewListSynchronized<CourseData>
 	{
 		return viewFactory.CreateCourse(data as CourseData, parent);
 	}
+
+	protected override bool NeededOnScene()
+	{
+		return true;
+	}
 }

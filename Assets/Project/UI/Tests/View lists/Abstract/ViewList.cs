@@ -39,9 +39,13 @@ public abstract class ViewList<T> : MonoBehaviour where T : Data
 		}
 	}
 
+	protected abstract bool NeededOnScene();
+
 	// Unity
 	protected virtual void Awake()
 	{
+		if (!NeededOnScene()) { Destroy(gameObject); return; }
+
 		FillContent();
 	}
 }

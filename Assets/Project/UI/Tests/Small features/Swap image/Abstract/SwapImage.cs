@@ -4,16 +4,16 @@ using UnityEngine.UI;
 // Inspector preview is extended in "SwapImageEditor"
 public class SwapImage : MonoBehaviour
 {
-	[SerializeField] bool useSprites = true;
+	[SerializeField] [HideInInspector] bool useSprites = true;
 
 	// Sprites
-	[SerializeField] Image target;
-	[SerializeField] Sprite spriteOn;
-	[SerializeField] Sprite spriteOff;
+	[SerializeField] [HideInInspector] Image target;
+	[SerializeField] [HideInInspector] Sprite spriteOn;
+	[SerializeField] [HideInInspector] Sprite spriteOff;
 
 	// Images
-	[SerializeField] Image imageOn;
-	[SerializeField] Image ImageOff;
+	[SerializeField] [HideInInspector] Image imageOn;
+	[SerializeField] [HideInInspector] Image ImageOff;
 
 	protected virtual void SubscribeSetEvents() { }
 	protected virtual bool GetCurrentValue() { return true; }

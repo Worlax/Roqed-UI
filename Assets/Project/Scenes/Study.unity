@@ -4775,7 +4775,7 @@ GameObject:
   - component: {fileID: 1032162902}
   - component: {fileID: 1032162900}
   m_Layer: 5
-  m_Name: Animation list
+  m_Name: Animation list 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4809,7 +4809,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032162898}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 543119faf8e7e9a46aca57eed5c0a920, type: 3}
   m_Name: 
@@ -4817,6 +4817,7 @@ MonoBehaviour:
   content: {fileID: 1883281939}
   uniqueSynchronization: 0
   uniqueSynchronizationId: 0
+  synchronizeToggle: 1
   animationType: 1
 --- !u!114 &1032162902
 MonoBehaviour:
@@ -6590,12 +6591,12 @@ GameObject:
   - component: {fileID: 1364845954}
   - component: {fileID: 1364845953}
   m_Layer: 5
-  m_Name: Animation list
+  m_Name: Animation list 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1364845950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6633,14 +6634,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364845949}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 543119faf8e7e9a46aca57eed5c0a920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 1066785064}
   uniqueSynchronization: 0
-  uniqueSynchronizationId: 11
+  uniqueSynchronizationId: 0
+  synchronizeToggle: 1
   animationType: 0
 --- !u!114 &1364845954
 MonoBehaviour:
@@ -7119,7 +7121,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432429765}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e661a542967bbd74a9ed9ad47cf1c67e, type: 3}
   m_Name: 
@@ -7127,6 +7129,7 @@ MonoBehaviour:
   content: {fileID: 1016572777}
   uniqueSynchronization: 0
   uniqueSynchronizationId: 0
+  synchronizeToggle: 1
 --- !u!1 &1439978440
 GameObject:
   m_ObjectHideFlags: 0
@@ -12730,6 +12733,7 @@ MonoBehaviour:
   content: {fileID: 9017372954609329622}
   uniqueSynchronization: 0
   uniqueSynchronizationId: 0
+  synchronizeToggle: 1
 --- !u!114 &9017372956249561477
 MonoBehaviour:
   m_ObjectHideFlags: 0

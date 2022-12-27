@@ -23,4 +23,9 @@ public class ObjectList : ViewListSynchronized<ObjectData>
 	{
 		return viewFactory.CreateObject(data as ObjectData, parent);
 	}
+
+	protected override bool NeededOnScene()
+	{
+		return database.ActiveCourse.ObjectsData != null;
+	}
 }

@@ -24,4 +24,9 @@ public class AnimationList : ViewListSynchronized<AnimationData>
 	{
 		return viewFactory.CreateAnimation(data as AnimationData, parent, animationType);
 	}
+
+	protected override bool NeededOnScene()
+	{
+		return database.ActiveCourse.AnimtaionsData != null;
+	}
 }

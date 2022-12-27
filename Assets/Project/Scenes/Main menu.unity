@@ -1235,6 +1235,7 @@ MonoBehaviour:
   content: {fileID: 783692543}
   uniqueSynchronization: 0
   uniqueSynchronizationId: 0
+  synchronizeToggle: 0
 --- !u!1 &645870605
 GameObject:
   m_ObjectHideFlags: 0

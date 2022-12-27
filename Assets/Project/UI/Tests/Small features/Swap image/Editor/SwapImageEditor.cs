@@ -31,19 +31,21 @@ public class SwapImageEditor : Editor
 
 	public override void OnInspectorGUI()
 	{
-		EditorGUILayout.PropertyField(useSprites);
+		base.OnInspectorGUI();
 
-		if (useSprites.boolValue)
-		{
-			EditorGUILayout.PropertyField(target);
-			EditorGUILayout.PropertyField(spriteOn);
-			EditorGUILayout.PropertyField(spriteOff);
-		}
-		else
-		{
-			EditorGUILayout.PropertyField(imageOn);
-			EditorGUILayout.PropertyField(ImageOff);
-		}
+		useSprites.boolValue = EditorGUILayout.Toggle("Use Images", useSprites.boolValue);
+		GUI.enabled = useSprites.boolValue;
+		EditorGUILayout.PropertyField(target);
+		EditorGUILayout.PropertyField(spriteOn);
+		EditorGUILayout.PropertyField(spriteOff);
+		GUI.enabled = true;
+		EditorGUILayout.Space();
+
+		useSprites.boolValue = !EditorGUILayout.Toggle("Use Sprites", !useSprites.boolValue);
+		GUI.enabled = !useSprites.boolValue;
+		EditorGUILayout.PropertyField(imageOn);
+		EditorGUILayout.PropertyField(ImageOff);
+		GUI.enabled = true;
 
 		serializedObject.ApplyModifiedProperties();
 	}
