@@ -10,11 +10,23 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 	[SerializeField] [HideInInspector] [Min(0)] int uniqueSynchronizationId;
 	[SerializeField] bool synchronizeToggle = true;
 
+	static bool synchronizing;
 	int synchronizationId;
 	static Dictionary<int, List<T>> synchronizedData = new Dictionary<int, List<T>>();
 	static Dictionary<int, List<bool>> synchronizedToggle = new Dictionary<int, List<bool>>();
 
-	static event Action<ViewListSynchronized<T>> OnSynchronizeEveryoneButOne;
+	static void SynchronizeAll()
+	{
+		synchronizing = true;
+
+		List<ViewListSynchronized<T>> allLists = FindObjectsOfType<ViewListSynchronized<T>>().ToList();
+		foreach (ViewListSynchronized<T> list in allLists)
+		{
+			list.Synchronize();
+		}
+
+		synchronizing = false;
+	}
 
 	void Synchronize()
 	{
@@ -82,10 +94,7 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 			Toggle ourItem = ourItems[i].GetGameObject().GetComponent<Toggle>();
 			if (ourItem == null) throw new Exception("Item have no toggle component to synchronize.");
 
-			if (synchronizedItem != ourItem.isOn)
-			{
-				ourItem.isOn = synchronizedItem;
-			}
+			ourItem.isOn = synchronizedItem;
 		}
 	}
 
@@ -104,6 +113,29 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 			.ToList();
 	}
 
+	void AddTogglesToToggleGroup()
+	{
+		ToggleGroup toggleGroup = GetComponent<ToggleGroup>();
+
+		foreach (IDataContainer<T> item in GetContentItems())
+		{
+			item.GetGameObject()
+				.GetComponent<Toggle>()
+				.group = toggleGroup;
+		}
+	}
+
+	void SubscribeForToggleEvents()
+	{
+		foreach (IDataContainer<T> item in GetContentItems())
+		{
+			item.GetGameObject()
+				.GetComponent<Toggle>()
+				.onValueChanged
+				.AddListener(_ => SaveStateAndSynchronizeAll());
+		}
+	}
+
 	// Unity
 	protected override void Awake()
 	{
@@ -116,21 +148,11 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 			SaveDataState();
 			if (synchronizeToggle) SaveTogglesState();
 		}
-	}
-
-	protected virtual void Start()
-	{
-		OnSynchronizeEveryoneButOne += SynchronizeEveryoneButOne;
 
 		if (synchronizeToggle)
 		{
-			foreach (IDataContainer<T> item in GetContentItems())
-			{
-				item.GetGameObject()
-					.GetComponent<Toggle>()
-					.onValueChanged
-					.AddListener(_ => SaveMyStateAndSynchronizeEveryoneElse());
-			}
+			AddTogglesToToggleGroup();
+			SubscribeForToggleEvents();
 		}
 	}
 
@@ -140,23 +162,13 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 	}
 
 	// Evets
-	void SaveMyStateAndSynchronizeEveryoneElse()
+	void SaveStateAndSynchronizeAll()
 	{
-		SaveDataState();
-		if (synchronizeToggle) SaveTogglesState();
-
-		OnSynchronizeEveryoneButOne?.Invoke(this);
-	}
-
-	void SynchronizeEveryoneButOne(ViewListSynchronized<T> butOne)
-	{
-		if (this != butOne)
+		if (!synchronizing)
 		{
-			Synchronize();
-		}
-		else
-		{
-			print("Ignore me " + name);
+			SaveDataState();
+			if (synchronizeToggle) SaveTogglesState();
+			SynchronizeAll();
 		}
 	}
 }

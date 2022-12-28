@@ -1446,9 +1446,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   licensePrefab: {fileID: 4545050572371658509, guid: e7cc4852e5190024f85bca55d18ee69a, type: 3}
   coursePrefab: {fileID: 3784579630475638050, guid: 80defbab65a86534c970c4cdc8dc9ede, type: 3}
-  animationSmallPrefab: {fileID: 5788713877568226617, guid: a8e67f81f644ef144b7932dde17c5ec1, type: 3}
-  animationBigPrefab: {fileID: 1975553320475670994, guid: 7d335cdbf4dc109429690fd20ce44f85, type: 3}
-  objectPrefab: {fileID: 2335083801692800186, guid: 0b901d5ae34069f4d969b383e9ee5a15, type: 3}
+  animationPrefabSmall: {fileID: 5788713877568226617, guid: a8e67f81f644ef144b7932dde17c5ec1, type: 3}
+  animationPrefabBig: {fileID: 1975553320475670994, guid: 7d335cdbf4dc109429690fd20ce44f85, type: 3}
+  objectPrefabSmall: {fileID: 2335083801692800186, guid: 0b901d5ae34069f4d969b383e9ee5a15, type: 3}
+  objectPrefabBig: {fileID: -7227207559663801678, guid: 64e938c3ed1943d48847c30f0762fcc7, type: 3}
 --- !u!4 &4466954435357640406
 Transform:
   m_ObjectHideFlags: 0
@@ -1663,8 +1664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd1d4baa38b78e43b784d7c7129a235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayScene:
-    m_Handle: 0
 --- !u!4 &4466954435772870225
 Transform:
   m_ObjectHideFlags: 0

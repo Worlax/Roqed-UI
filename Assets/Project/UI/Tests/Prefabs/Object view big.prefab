@@ -148,9 +148,9 @@ GameObject:
   - component: {fileID: 8196299659143633118}
   - component: {fileID: 8125501456728746603}
   - component: {fileID: 7116629885369788668}
-  - component: {fileID: 1975553320475670994}
+  - component: {fileID: -7227207559663801678}
   m_Layer: 5
-  m_Name: Animation view big
+  m_Name: Object view big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   spriteOff: {fileID: 0}
   imageOn: {fileID: 8196299659451001971}
   ImageOff: {fileID: 0}
---- !u!114 &1975553320475670994
+--- !u!114 &-7227207559663801678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8196299659143633116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8903f765668ded4990029f3dc54fa28, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bed7c6da69ae4b48a02598bb38f0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 8196299658574410329}

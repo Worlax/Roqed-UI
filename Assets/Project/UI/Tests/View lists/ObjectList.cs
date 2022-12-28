@@ -4,6 +4,7 @@ using Zenject;
 
 public class ObjectList : ViewListSynchronized<ObjectData>
 {
+	[SerializeField] ViewFactory.ObjectType type;
 	[Inject] ViewFactory viewFactory;
 	[Inject] Database database;
 
@@ -21,7 +22,7 @@ public class ObjectList : ViewListSynchronized<ObjectData>
 
 	protected override IDataContainer<ObjectData> CreateItem(Data data, Transform parent)
 	{
-		return viewFactory.CreateObject(data as ObjectData, parent);
+		return viewFactory.CreateObject(data as ObjectData, parent, type);
 	}
 
 	protected override bool NeededOnScene()

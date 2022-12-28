@@ -7130,6 +7130,7 @@ MonoBehaviour:
   uniqueSynchronization: 0
   uniqueSynchronizationId: 0
   synchronizeToggle: 1
+  type: 1
 --- !u!1 &1439978440
 GameObject:
   m_ObjectHideFlags: 0
@@ -12707,10 +12708,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9017372956249561472}
   - component: {fileID: 9017372956249561470}
+  - component: {fileID: 9017372956249561477}
   - component: {fileID: 9017372956249561473}
   - component: {fileID: 9017372956249561478}
   - component: {fileID: 9017372956249561476}
-  - component: {fileID: 9017372956249561477}
   m_Layer: 5
   m_Name: Objects list
   m_TagString: Untagged
@@ -12725,7 +12726,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9017372956249561475}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e661a542967bbd74a9ed9ad47cf1c67e, type: 3}
   m_Name: 
@@ -12734,6 +12735,7 @@ MonoBehaviour:
   uniqueSynchronization: 0
   uniqueSynchronizationId: 0
   synchronizeToggle: 1
+  type: 0
 --- !u!114 &9017372956249561477
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public static class FakeDataCreator
 	{
 		return new CourseData[7]
 		{
-			CreateRandomCourse(),
+			CreateRandomCourse(false),
 			CreateRandomCourse(),
 			CreateRandomCourse(),
 			CreateRandomCourse(),
@@ -16,7 +16,7 @@ public static class FakeDataCreator
 		};
 	}
 
-	static CourseData CreateRandomCourse()
+	static CourseData CreateRandomCourse(bool randomContent = true)
 	{
 		CourseData courseData = new CourseData()
 		{
@@ -31,10 +31,13 @@ public static class FakeDataCreator
 		};
 
 		// Course content variations
-		courseData.ObjectsData = Random.Range(0, 2) == 0 ? courseData.ObjectsData : null;
-		courseData.AnimtaionsData = Random.Range(0, 2) == 0 ? courseData.AnimtaionsData : null;
-		courseData.PracticeData = Random.Range(0, 2) == 0 ? courseData.PracticeData : null;
-		courseData.TestsData = Random.Range(0, 2) == 0 ? courseData.TestsData : null;
+		if (randomContent)
+		{
+			courseData.ObjectsData = Random.Range(0, 2) == 0 ? courseData.ObjectsData : null;
+			courseData.AnimtaionsData = Random.Range(0, 2) == 0 ? courseData.AnimtaionsData : null;
+			courseData.PracticeData = Random.Range(0, 2) == 0 ? courseData.PracticeData : null;
+			courseData.TestsData = Random.Range(0, 2) == 0 ? courseData.TestsData : null;
+		}
 
 		return courseData;
 	}
