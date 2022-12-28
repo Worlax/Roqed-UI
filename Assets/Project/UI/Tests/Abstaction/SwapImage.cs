@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Inspector preview is extended in "SwapImageEditor"
-public class SwapImage : MonoBehaviour
+public abstract class SwapImage : MonoBehaviour
 {
 	[SerializeField] [HideInInspector] bool useSprites = true;
 
