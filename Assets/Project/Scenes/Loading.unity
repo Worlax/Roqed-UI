@@ -398,7 +398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &369709172
 RectTransform:
   m_ObjectHideFlags: 0
@@ -433,6 +433,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b358301f232921c46a8c4665f428a979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemHolder1: {fileID: 1119962974}
+  itemHolder2: {fileID: 1787490422}
+  showItemSeconds: 3
+  transitionSpeed: 1
   items:
   - {fileID: 21300000, guid: 50a9e74cdf72fd944852d7b534b8d5d0, type: 3}
   - {fileID: 21300000, guid: f81f223344443a24ea54a87dbbb05de2, type: 3}
@@ -442,10 +446,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 91dd847ecd38e13419b19cf1b02dbf84, type: 3}
   - {fileID: 21300000, guid: 701889445b66f804eb923831c3ab429b, type: 3}
   - {fileID: 21300000, guid: e3f3c36526a800b4d88fea9ed7c787ce, type: 3}
-  itemHolder1: {fileID: 1119962974}
-  itemHolder2: {fileID: 1787490422}
-  showItemSeconds: 1
-  transitionSpeed: 1
 --- !u!1 &1037461860
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5835639ee9929a4e8d4bc85e8a154c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemHolder1: {fileID: 16153141}
+  itemHolder2: {fileID: 1940299704}
+  showItemSeconds: 0.8
+  transitionSpeed: 1
   items:
   - XXDXXDDDX
   - "\u0422\u044B \u0431 \u0431\u044B\u043B \u0441\u043E\u0431\u043E\u0439, \u043D\u0435
@@ -798,10 +802,10 @@ MonoBehaviour:
     \u0432\u0437\u0430\u043C\u0435\u043D!"
   - "\u0427\u0442\u043E, \u0435\u0441\u043B\u0438 \u044D\u0442\u043E \u044F\u0434?
     \u0412\u0435\u0434\u044C \u0434\u043B\u044F \u043C\u043E\u043D\u0430\u0445\u0430 
-    \u0413\u0440\u043E\u0437\u0438\u0442 \u0440\u0430\u0437\u043E\u0431\u043B\u0430\u0447\u0435\u043D\u0438\u0435\u043C
+    \u0433\u0440\u043E\u0437\u0438\u0442 \u0440\u0430\u0437\u043E\u0431\u043B\u0430\u0447\u0435\u043D\u0438\u0435\u043C
     \u043D\u0430\u0448 \u0431\u0440\u0430\u043A.  \u0410 \u0435\u0441\u043B\u0438
     \u044F \u0443\u043C\u0440\u0443, \u0442\u043E \u043D\u0435 \u0443\u0437\u043D\u0430\u044E\u0442, 
-    \u0427\u0442\u043E \u043E\u043D \u043C\u0435\u043D\u044F \u0441 \u0420\u043E\u043C\u0435\u043E
+    \u0447\u0442\u043E \u043E\u043D \u043C\u0435\u043D\u044F \u0441 \u0420\u043E\u043C\u0435\u043E
     \u043E\u0431\u0432\u0435\u043D\u0447\u0430\u043B.  \u0414\u0430, \u044D\u0442\u043E
     \u0442\u0430\u043A. \u041D\u0435\u0442, \u044D\u0442\u043E \u043D\u0435\u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E!
     \u041E\u043D \u043F\u0440\u0430\u0432\u0435\u0434\u043D\u0438\u043A\u043E\u043C
@@ -809,10 +813,6 @@ MonoBehaviour:
     \u0427\u0442\u043E, \u0435\u0441\u043B\u0438 \u044F \u043E\u0447\u043D\u0443\u0441\u044C
     \u0434\u043E \u043F\u043E\u044F\u0432\u043B\u0435\u043D\u044C\u044F \u0420\u043E\u043C\u0435\u043E? 
     \u0412\u043E\u0442 \u0447\u0442\u043E \u043C\u043E\u0436\u0435\u0442 \u043D\u0430\u043F\u0443\u0433\u0430\u0442\u044C!"
-  itemHolder1: {fileID: 16153141}
-  itemHolder2: {fileID: 1940299704}
-  showItemSeconds: 0.8
-  transitionSpeed: 0.3
 --- !u!225 &1326950539
 CanvasGroup:
   m_ObjectHideFlags: 0

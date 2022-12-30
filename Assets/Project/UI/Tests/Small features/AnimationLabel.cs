@@ -3,18 +3,19 @@ using UnityEngine;
 
 public class AnimationLabel : MonoBehaviour
 {
+	[SerializeField] AnimationList animationList;
 	[SerializeField] TMP_Text label;
 
 	// Unity
 	private void Start()
 	{
-		print("TODO");
-		//AnimationList.OnNewAnimationStarted += NewAnimationStarted;
+		AnimationList.OnNewItemToggled += NewAnimationStarted;
+		NewAnimationStarted(animationList.GetActiveItem());
 	}
 
 	// Events
-	void NewAnimationStarted(AnimationView animationView)
+	void NewAnimationStarted(AnimationData data)
 	{
-		label.text = animationView.Data.Name;
+		label.text = data.Name;
 	}
 }

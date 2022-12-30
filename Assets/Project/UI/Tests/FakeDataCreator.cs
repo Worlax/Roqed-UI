@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class FakeDataCreator
@@ -21,8 +23,10 @@ public static class FakeDataCreator
 		CourseData courseData = new CourseData()
 		{
 			Name = CreateRandomString(),
-			Group = CreateRandomString(),
+			Group = CreateRandomGroup(),
 			Description = CreateRandomString(),
+			LastTimeOpened = CreateRandomDate(),
+			LastTimeUpdated = CreateRandomDate(),
 
 			ObjectsData = CreateMultipleObjects(),
 			AnimtaionsData = CreateMultipeAnimations(),
@@ -33,13 +37,47 @@ public static class FakeDataCreator
 		// Course content variations
 		if (randomContent)
 		{
-			courseData.ObjectsData = Random.Range(0, 2) == 0 ? courseData.ObjectsData : null;
-			courseData.AnimtaionsData = Random.Range(0, 2) == 0 ? courseData.AnimtaionsData : null;
-			courseData.PracticeData = Random.Range(0, 2) == 0 ? courseData.PracticeData : null;
-			courseData.TestsData = Random.Range(0, 2) == 0 ? courseData.TestsData : null;
+			courseData.ObjectsData = FlipACoint() ? courseData.ObjectsData : null;
+			courseData.AnimtaionsData = FlipACoint() ? courseData.AnimtaionsData : null;
+			courseData.PracticeData = FlipACoint() ? courseData.PracticeData : null;
+			courseData.TestsData = FlipACoint() ? courseData.TestsData : null;
 		}
 
 		return courseData;
+	}
+
+	static bool FlipACoint(int percentsToGetTrue = 50)
+	{
+		return UnityEngine.Random.Range(0, 100) <= percentsToGetTrue - 1;
+	}
+
+	static string[] groups0 = new string[] { "1. " + CreateRandomString(), "1. " + CreateRandomString(), "1. " + CreateRandomString() };
+	static string[] groups1 = new string[] { "2. " + CreateRandomString(), "2. " + CreateRandomString(), "2. " + CreateRandomString() };
+	static string[] groups2 = new string[] { "3. " + CreateRandomString(), "3. " + CreateRandomString(), "3. " + CreateRandomString() };
+	static string[] groups3 = new string[] { "4. " + CreateRandomString(), "4. " + CreateRandomString(), "4. " + CreateRandomString() };
+
+	static string CreateRandomGroup()
+	{
+		int GetRandomIndex() => UnityEngine.Random.Range(0, 3);
+
+		string group = groups0[GetRandomIndex()];
+
+		if (FlipACoint())
+		{
+			group += "/" + groups1[GetRandomIndex()];
+
+			if (FlipACoint())
+			{
+				group += "/" + groups2[GetRandomIndex()];
+
+				if (FlipACoint())
+				{
+					group += "/" + groups3[GetRandomIndex()];
+				}
+			}
+		}
+
+		return group;
 	}
 
 	static TestData[] CreateMultipleTestData()
@@ -116,16 +154,21 @@ public static class FakeDataCreator
 		};
 	}
 
+	static DateTime CreateRandomDate()
+	{
+		return new DateTime(new System.Random().Next());
+	}
+
 	static string CreateRandomString()
 	{
 		string characters = "abcdefghijklmnopqrstuvwxyz";
-		int stringLength = Random.Range(8, 30);
+		int stringLength = UnityEngine.Random.Range(8, 30);
 
 		string result = "";
 
 		for (int i = 0; i < stringLength; ++i)
 		{
-			result += characters[Random.Range(0, characters.Length - 1)];
+			result += characters[UnityEngine.Random.Range(0, characters.Length - 1)];
 		}
 
 		return result;

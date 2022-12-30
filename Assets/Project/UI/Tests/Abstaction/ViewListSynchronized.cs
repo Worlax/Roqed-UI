@@ -12,8 +12,15 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 
 	static bool synchronizing;
 	int synchronizationId;
-	static Dictionary<int, List<T>> synchronizedData = new Dictionary<int, List<T>>();
-	static Dictionary<int, List<bool>> synchronizedToggle = new Dictionary<int, List<bool>>();
+	static Dictionary<int, List<T>> synchronizedDataDictionary = new Dictionary<int, List<T>>();
+	static Dictionary<int, List<bool>> synchronizedTogglesDictionary = new Dictionary<int, List<bool>>();
+
+	public static event Action<T> OnNewItemToggled;
+
+	public T GetActiveItem()
+	{
+		return GetContentItems().First(x => x.GetGameObject().GetComponent<Toggle>().isOn).Data;
+	}
 
 	static void SynchronizeAll()
 	{
@@ -31,16 +38,17 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 	void Synchronize()
 	{
 		print("Synchronizing " + name);
-		List<T> synchronizedData = ViewListSynchronized<T>.synchronizedData[synchronizationId];
+		List<T> synchronizedData = synchronizedDataDictionary[synchronizationId];
 		List<IDataContainer<T>> ourItems = GetContentItems();
+		List<Toggle> ourToggles = GetContentToggles();
 
 		SynchronizeSize(synchronizedData, ref ourItems);
 		SynchronizeData(synchronizedData, ourItems);
 
 		if(synchronizeToggle)
 		{
-			List<bool> synchronizedToggles = synchronizedToggle[synchronizationId];
-			SynchronizeToggle(synchronizedToggles, ourItems);
+			List<bool> synchronizedToggles = synchronizedTogglesDictionary[synchronizationId];
+			SynchronizeToggles(synchronizedToggles, ourToggles);
 		}
 	}
 
@@ -84,30 +92,27 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 		}
 	}
 
-	void SynchronizeToggle(List<bool> synchronizedToggles, List<IDataContainer<T>> ourItems)
+	void SynchronizeToggles(List<bool> synchronizedToggles, List<Toggle> ourToggles)
 	{
-		if (synchronizedToggles.Count() != ourItems.Count) throw new Exception("Toggles size is not syncrhonized.");
+		if (synchronizedToggles.Count() != ourToggles.Count) throw new Exception("Toggles size is not syncrhonized.");
 
 		for (int i = 0; i < synchronizedToggles.Count; ++i)
 		{
 			bool synchronizedItem = synchronizedToggles[i];
-			Toggle ourItem = ourItems[i].GetGameObject().GetComponent<Toggle>();
-			if (ourItem == null) throw new Exception("Item have no toggle component to synchronize.");
-
-			ourItem.isOn = synchronizedItem;
+			ourToggles[i].isOn = synchronizedItem;
 		}
 	}
 
 	void SaveDataState()
 	{
 		print("Saving data " + name);
-		synchronizedData[synchronizationId] = GetContentItems().Select(x => x.Data).ToList();
+		synchronizedDataDictionary[synchronizationId] = GetContentItems().Select(x => x.Data).ToList();
 	}
 
 	void SaveTogglesState()
 	{
 		print("Saving toggle " + name);
-		synchronizedToggle[synchronizationId] = GetContentItems()
+		synchronizedTogglesDictionary[synchronizationId] = GetContentItems()
 			.Select(x => x.GetGameObject()
 			.GetComponent<Toggle>().isOn)
 			.ToList();
@@ -129,11 +134,14 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 	{
 		foreach (IDataContainer<T> item in GetContentItems())
 		{
-			item.GetGameObject()
-				.GetComponent<Toggle>()
-				.onValueChanged
-				.AddListener(_ => SaveStateAndSynchronizeAll());
+			Toggle toggle = item.GetGameObject().GetComponent<Toggle>();
+			toggle.onValueChanged.AddListener(value => ToggleValueChanged(item.Data, value));
 		}
+	}
+
+	List<Toggle> GetContentToggles()
+	{
+		return GetContentItems().Select(x => x.GetGameObject().GetComponent<Toggle>()).ToList();
 	}
 
 	// Unity
@@ -143,7 +151,7 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 
 		synchronizationId = uniqueSynchronization ? uniqueSynchronizationId : -1;
 
-		if (!synchronizedData.ContainsKey(synchronizationId))
+		if (!synchronizedDataDictionary.ContainsKey(synchronizationId))
 		{
 			SaveDataState();
 			if (synchronizeToggle) SaveTogglesState();
@@ -162,10 +170,12 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 	}
 
 	// Evets
-	void SaveStateAndSynchronizeAll()
+	void ToggleValueChanged(T data, bool value)
 	{
 		if (!synchronizing)
 		{
+			if (value) { OnNewItemToggled?.Invoke(data); }
+
 			SaveDataState();
 			if (synchronizeToggle) SaveTogglesState();
 			SynchronizeAll();
