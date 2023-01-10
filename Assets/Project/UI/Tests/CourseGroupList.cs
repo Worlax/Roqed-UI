@@ -1,20 +1,15 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using TMPro;
 
 public class CourseGroupList : MonoBehaviour
 {
 	[SerializeField] Transform courseContent;
 	[SerializeField] Transform dropdownContent;
-	[SerializeField] TMP_Dropdown baseDropdown;
-	[SerializeField] TMP_Dropdown dropDownPrefab;
+	[SerializeField] CourseGroupDropdown baseDropdown;
 
 	List<CourseGroup> allGroups = new List<CourseGroup>();
-	static char GROUP_SPLITTER = '/';
 
-	CourseGroup FindGroup(string name) => allGroups.Find(x => x.Name == name);
 	CourseGroup CreateGroup(string name) => new CourseGroup() { Name = name };
 	List<CourseGroup> GetBaseGroups() => allGroups.Where(x => x.Parent == null).ToList();
 
@@ -22,10 +17,10 @@ public class CourseGroupList : MonoBehaviour
 	{
 		foreach (CourseView courseView in GetAllCourses())
 		{
-			AddGroupsFromNames(courseView.Data.Group);
+			AddGroupsFromNames(courseView.Data.GetAllGroups());
 		}
 
-		FillDropdown(baseDropdown, GetBaseGroups());
+		baseDropdown.Init(GetBaseGroups());
 	}
 
 	List<CourseView> GetAllCourses()
@@ -40,55 +35,105 @@ public class CourseGroupList : MonoBehaviour
 		return courses;
 	}
 
-	void AddGroupsFromNames(string groupNames)
+	void AddGroupsFromNames(string[] groupHierarchy)
 	{
-		List<CourseGroup> groupsUsedInScope = new List<CourseGroup>();
-		string[] splitedGroupNames = groupNames.Split(GROUP_SPLITTER);
+		List<CourseGroup> parentHierarchy = new List<CourseGroup>();
 
-		foreach (string groupName in splitedGroupNames)
+		for (int i = 0; i < groupHierarchy.Count(); ++i)
 		{
-			CourseGroup group = FindGroup(groupName);
+			CourseGroup group = FindGroup(parentHierarchy, groupHierarchy[i]);
 
 			if (group == null)
 			{
-				group = CreateGroup(groupName);
+				group = CreateGroup(groupHierarchy[i]);
 				allGroups.Add(group);
 			}
 
-			if (groupsUsedInScope.Count != 0)
+			if (parentHierarchy.Count != 0)
 			{
-				group.Parent = groupsUsedInScope.Last();
-				group.Parent.Children.Add(group);
+				group.Parent = parentHierarchy.Last();
+				group.Parent.AddChildren(group);
 			}
 
-			groupsUsedInScope.Add(group);
+			parentHierarchy.Add(group);
 		}
+
+		string hierarchyString1= "";
+		groupHierarchy.ToList().ForEach(x => hierarchyString1 += x + ", ");
+		print($"Hierarchy array input: {hierarchyString1}");
+
+		string hierarchyString = "";
+		parentHierarchy.ForEach(x => hierarchyString += x.Name + ", ");
+		print($"Hierarchy created: {hierarchyString}");
 	}
 
-	void FillDropdown(TMP_Dropdown dropdown, List<CourseGroup> groups)
+	CourseGroup FindGroup(List<CourseGroup> parentHierarchy, string name)
 	{
-		dropdown.options.Clear();
+		string hierarchyString = "";
+		parentHierarchy.ForEach(x => hierarchyString += x.Name + ", ");
 
+		if (hierarchyString.Length > 0)
+			hierarchyString = hierarchyString.Substring(0, hierarchyString.Length - 2);
+		print($"Ttying to find: {name} with hieararchy: {hierarchyString}");
+
+		foreach (CourseGroup group in allGroups)
+		{
+			if (group.Name == name && IsParentHierarchyMatch(parentHierarchy, group))
+			{
+				print("found");
+				return group;
+			}
+		}
+
+		print("fail");
+		return null;
+	}
+
+	bool IsParentHierarchyMatch(List<CourseGroup> parentHierarchy, CourseGroup group)
+	{
+		parentHierarchy.Reverse();
+		CourseGroup selectedParent = group.Parent;
+
+		foreach (CourseGroup parent in parentHierarchy)
+		{
+			if (selectedParent == null || selectedParent.Name != parent.Name)
+			{
+				return false;
+			}
+
+			selectedParent = selectedParent.Parent;
+		}
+
+		return true;
+	}
+
+	bool IsCourseInAnyOfGroups(CourseView course, List<CourseGroup> groups)
+	{
 		foreach (CourseGroup group in groups)
 		{
-			dropdown.options.Add(new TMP_Dropdown.OptionData(group.Name));
+			if (course.Data.IsInGroup(group.GetFullName())) { return true; }
 		}
+
+		return false;
 	}
 
 	// Unity
 	private void Start()
 	{
 		Init();
-		baseDropdown.onValueChanged.AddListener(BaseDropdownValueChanged);
+
+		CourseGroupDropdown.OnNewGroupsSelectd += NewGroupsSelected;
 	}
 
 	// Events
-	void BaseDropdownValueChanged(int value)
+	void NewGroupsSelected(List<CourseGroup> groups)
 	{
-		CourseGroup selectedGroup = FindGroup(baseDropdown.options[value].text);
-		TMP_Dropdown newDropdown = Instantiate(dropDownPrefab, dropdownContent);
+		groups.ForEach(x => print(x.GetFullName()));
 
-		FillDropdown(newDropdown, selectedGroup.Children);
-		newDropdown.onValueChanged.AddListener(BaseDropdownValueChanged);
+		foreach (CourseView course in GetAllCourses())
+		{
+			bool courseInGroup = IsCourseInAnyOfGroups(course, groups);
+			course.gameObject.SetActive(courseInGroup);
+		}
 	}
 }

@@ -77,6 +77,7 @@ public static class FakeDataCreator
 			}
 		}
 
+		Debug.Log($"Group created: {group}");
 		return group;
 	}
 
