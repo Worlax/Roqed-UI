@@ -40,6 +40,8 @@ public class WindowFactory : MonoBehaviour
 	// Events
 	void WindowClosed<T>(Window<T> window) where T : Data
 	{
+		window.OnClose -= WindowClosed;
+
 		activeWindows.Remove(window as Window<Data>);
 		OnWindowClosed?.Invoke(window as Window<Data>);
 	}

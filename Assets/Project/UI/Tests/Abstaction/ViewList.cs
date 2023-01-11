@@ -2,14 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public abstract class ViewList<T> : MonoBehaviour where T : Data
 {
 	[SerializeField] protected Transform content;
 
 	protected abstract IDataContainer<T> CreateItem(Data data, Transform parent);
 	protected abstract List<IDataContainer<T>> CreateAllItems(Transform parent);
+	protected abstract bool NeededOnScene();
 
+	public bool Doomed { get; private set; }
 	public List<IDataContainer<T>> Items { get; private set; } = new List<IDataContainer<T>>();
 
 	protected void FillContent()
@@ -41,12 +42,10 @@ public abstract class ViewList<T> : MonoBehaviour where T : Data
 		}
 	}
 
-	protected abstract bool NeededOnScene();
-
 	// Unity
 	protected virtual void Awake()
 	{
-		if (!NeededOnScene()) { Destroy(gameObject); return; }
+		if (!NeededOnScene()) { Doomed = true; Destroy(gameObject); return; }
 
 		FillContent();
 	}

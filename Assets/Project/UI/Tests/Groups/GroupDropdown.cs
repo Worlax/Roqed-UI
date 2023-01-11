@@ -5,19 +5,19 @@ using UnityEngine;
 using TMPro;
 
 [RequireComponent(typeof(TMP_Dropdown))]
-public class CourseGroupDropdown : MonoBehaviour
+public class GroupDropdown : MonoBehaviour
 {
 	TMP_Dropdown dropdown;
-	List<CourseGroup> groups = new List<CourseGroup>();
-	List<CourseGroupDropdown> children = new List<CourseGroupDropdown>();
+	List<GroupData> groups = new List<GroupData>();
+	List<GroupDropdown> children = new List<GroupDropdown>();
 
 	static string ALL_GROUPS = "All";
 
-	static public event Action<List<CourseGroup>> OnNewGroupsSelectd;
+	static public event Action<List<GroupData>> OnNewGroupsSelectd;
 
-	CourseGroup FindGroup(string name) => groups.Find(x => x.Name == name);
+	GroupData FindGroup(string name) => groups.Find(x => x.Name == name);
 
-	public void Init(List<CourseGroup> groups)
+	public void Init(List<GroupData> groups)
 	{
 		dropdown.options.Clear();
 		this.groups = groups;
@@ -25,7 +25,7 @@ public class CourseGroupDropdown : MonoBehaviour
 
 		dropdown.options.Add(new TMP_Dropdown.OptionData(ALL_GROUPS));
 
-		foreach (CourseGroup group in groups)
+		foreach (GroupData group in groups)
 		{
 			dropdown.options.Add(new TMP_Dropdown.OptionData(group.Name));
 		}
@@ -40,16 +40,16 @@ public class CourseGroupDropdown : MonoBehaviour
 		if (optionsList != null) { Destroy(optionsList.gameObject); }
 	}
 
-	void CreateChildrenDropdown(List<CourseGroup> groups)
+	void CreateChildrenDropdown(List<GroupData> groups)
 	{
-		CourseGroupDropdown newDropdown = Instantiate(this, transform.parent);
+		GroupDropdown newDropdown = Instantiate(this, transform.parent);
 		children.Add(newDropdown);
 		newDropdown.Init(groups);
 	}
 
 	void DestroyChildren()
 	{
-		foreach (CourseGroupDropdown dropdown in children)
+		foreach (GroupDropdown dropdown in children)
 		{
 			dropdown.DestroyChildren();
 			Destroy(dropdown.gameObject);
@@ -73,7 +73,7 @@ public class CourseGroupDropdown : MonoBehaviour
 		{
 			if (groups[0].Parent != null)
 			{
-				OnNewGroupsSelectd?.Invoke(new List<CourseGroup>() { groups[0].Parent });
+				OnNewGroupsSelectd?.Invoke(new List<GroupData>() { groups[0].Parent });
 			}
 			else
 			{
@@ -82,14 +82,14 @@ public class CourseGroupDropdown : MonoBehaviour
 		}
 		else
 		{
-			CourseGroup group = FindGroup(dropdown.options[value].text);
+			GroupData group = FindGroup(dropdown.options[value].text);
 
 			if (group.Children.Count != 0)
 			{
 				CreateChildrenDropdown(group.Children.ToList());
 			}
 
-			OnNewGroupsSelectd?.Invoke(new List<CourseGroup>() { group });
+			OnNewGroupsSelectd?.Invoke(new List<GroupData>() { group });
 		}
 	}
 }

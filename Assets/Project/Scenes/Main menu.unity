@@ -3142,6 +3142,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 422488997}
+  - {fileID: 899378139301990566}
   - {fileID: 7124283430869924841}
   m_Father: {fileID: 1174987657}
   m_RootOrder: 1
@@ -3178,19 +3179,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2713548762494457353}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2091000785365828739}
-  m_RootOrder: 0
+  m_Father: {fileID: 2007684797}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 106, y: 30}
-  m_SizeDelta: {x: 200, y: 32}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 57, y: 32}
+  m_SizeDelta: {x: 200, y: 28}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1562937138037128574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,7 +3434,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091000785365828739}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -3636,7 +3637,7 @@ GameObject:
   - component: {fileID: 2091000785365828738}
   - component: {fileID: 268500439548029344}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: Group dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3708,7 +3709,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 899378139301990566}
   - {fileID: 2091000786141964287}
   - {fileID: 2091000785449933130}
   - {fileID: 2091000784957781458}
@@ -3772,7 +3772,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091000785365828739}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4245,7 +4245,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091000785365828739}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4396,7 +4396,7 @@ RectTransform:
   - {fileID: 2091000786005244036}
   - {fileID: 2091000785472897451}
   m_Father: {fileID: 2091000785365828739}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -4573,7 +4573,7 @@ GameObject:
   - component: {fileID: 8279859466558621383}
   - component: {fileID: 4058582384744689980}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Course group label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4818,7 +4818,7 @@ GameObject:
   - component: {fileID: 7124283430869924846}
   - component: {fileID: 7124283430869924848}
   m_Layer: 5
-  m_Name: Course group dropdown list
+  m_Name: Course group list
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4838,7 +4838,7 @@ RectTransform:
   m_Children:
   - {fileID: 2091000785365828739}
   m_Father: {fileID: 2007684797}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4891,8 +4891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df177a65cf777e54ab810a8eb29a1793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  courseContent: {fileID: 783692543}
-  dropdownContent: {fileID: 7124283430869924841}
+  courseList: {fileID: 594541645}
+  dropdownsContent: {fileID: 7124283430869924841}
   baseDropdown: {fileID: 268500439548029344}
 --- !u!114 &7226930331642397379
 MonoBehaviour:

@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 
-public class CourseGroup
+public class GroupData
 {
 	public string Name;
-	public CourseGroup Parent;
-	public IReadOnlyList<CourseGroup> Children => children;
+	public GroupData Parent;
+	public IReadOnlyList<GroupData> Children => children;
 
-	List<CourseGroup> children = new List<CourseGroup>();
+	List<GroupData> children = new List<GroupData>();
 
-	public CourseGroup FindChildren(string name) => children.Find(x => x.Name == name);
+	public GroupData FindChildren(string name) => children.Find(x => x.Name == name);
 
-	public CourseGroup(string name)
+	public GroupData(string name)
 	{
 		Name = name;
 	}	
@@ -19,7 +19,7 @@ public class CourseGroup
 	{
 		string fullName = "";
 
-		CourseGroup unwindParent = Parent;
+		GroupData unwindParent = Parent;
 
 		while (unwindParent != null)
 		{
@@ -30,7 +30,7 @@ public class CourseGroup
 		return fullName + Name;
 	}
 
-	public void AddChildren(CourseGroup courseGroup)
+	public void AddChildren(GroupData courseGroup)
 	{
 		if (!children.Contains(courseGroup))
 		{

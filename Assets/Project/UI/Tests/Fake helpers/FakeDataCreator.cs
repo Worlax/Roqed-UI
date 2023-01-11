@@ -8,8 +8,8 @@ public static class FakeDataCreator
 	{
 		return new CourseData[7]
 		{
-			CreateRandomCourse(false),
-			CreateRandomCourse(),
+			CreateRandomCourse(1),
+			CreateRandomCourse(2),
 			CreateRandomCourse(),
 			CreateRandomCourse(),
 			CreateRandomCourse(),
@@ -18,7 +18,11 @@ public static class FakeDataCreator
 		};
 	}
 
-	static CourseData CreateRandomCourse(bool randomContent = true)
+	// randomType:
+	// 0 - all random
+	// 1 - all on
+	// 2 - all off
+	static CourseData CreateRandomCourse(int randomType = 0)
 	{
 		CourseData courseData = new CourseData()
 		{
@@ -35,13 +39,13 @@ public static class FakeDataCreator
 		};
 
 		// Course content variations
-		if (randomContent)
-		{
-			courseData.ObjectsData = FlipACoint() ? courseData.ObjectsData : null;
-			courseData.AnimtaionsData = FlipACoint() ? courseData.AnimtaionsData : null;
-			courseData.PracticeData = FlipACoint() ? courseData.PracticeData : null;
-			courseData.TestsData = FlipACoint() ? courseData.TestsData : null;
-		}
+		int percentToGetTrue = randomType == 0 ? 50 : (randomType == 1 ? 100 : 0);
+		courseData.Name = randomType == 0 ? courseData.Name : (randomType == 1 ? "<b>ALL ON</b>" : "<b>ALL OFF</b>");
+
+		courseData.ObjectsData = FlipACoint(percentToGetTrue) ? courseData.ObjectsData : null;
+		courseData.AnimtaionsData = FlipACoint(percentToGetTrue) ? courseData.AnimtaionsData : null;
+		courseData.PracticeData = FlipACoint(percentToGetTrue) ? courseData.PracticeData : null;
+		courseData.TestsData = FlipACoint(percentToGetTrue) ? courseData.TestsData : null;
 
 		return courseData;
 	}

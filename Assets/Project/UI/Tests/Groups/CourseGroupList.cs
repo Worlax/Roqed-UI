@@ -6,9 +6,9 @@ public class CourseGroupList : MonoBehaviour
 {
 	[SerializeField] CourseList courseList;
 	[SerializeField] Transform dropdownsContent;
-	[SerializeField] CourseGroupDropdown baseDropdown;
+	[SerializeField] GroupDropdown baseDropdown;
 
-	List<CourseGroup> rootGroups = new List<CourseGroup>();
+	List<GroupData> rootGroups = new List<GroupData>();
 
 	void Init()
 	{
@@ -27,15 +27,15 @@ public class CourseGroupList : MonoBehaviour
 	void CreateGroups(string[] groups)
 	{
 		string rootName = groups[0];
-		CourseGroup iteratedGroup = FindOrCreateRootGroup(rootName);
+		GroupData iteratedGroup = FindOrCreateRootGroup(rootName);
 
 		for (int i = 1; i < groups.Length; ++i)
 		{
-			CourseGroup nextIteratedGroup = iteratedGroup.FindChildren(groups[i]);
+			GroupData nextIteratedGroup = iteratedGroup.FindChildren(groups[i]);
 
 			if (nextIteratedGroup == null)
 			{
-				nextIteratedGroup = new CourseGroup(groups[i]);
+				nextIteratedGroup = new GroupData(groups[i]);
 				nextIteratedGroup.Parent = iteratedGroup;
 				iteratedGroup.AddChildren(nextIteratedGroup);
 			}
@@ -44,20 +44,20 @@ public class CourseGroupList : MonoBehaviour
 		}
 	}
 
-	CourseGroup FindOrCreateRootGroup(string name)
+	GroupData FindOrCreateRootGroup(string name)
 	{
-		CourseGroup group = rootGroups.Find(x => x.Name == name);
+		GroupData group = rootGroups.Find(x => x.Name == name);
 
 		if (group == null)
 		{
-			group = new CourseGroup(name);
+			group = new GroupData(name);
 			rootGroups.Add(group);
 		}
 
 		return group;
 	}
 
-	void UpdateActiveCourses(List<CourseGroup> activeGroups)
+	void UpdateActiveCourses(List<GroupData> activeGroups)
 	{
 		foreach (IDataContainer<CourseData> dataContainer in courseList.Items)
 		{
@@ -66,12 +66,9 @@ public class CourseGroupList : MonoBehaviour
 		}
 	}
 
-	bool IsCourseInAnyOfGroups(CourseData data, List<CourseGroup> groups)
+	bool IsCourseInAnyOfGroups(CourseData data, List<GroupData> groups)
 	{
-		string activeGroups = string.Join(", ", groups.Select(x => x.GetFullName()));
-		print($"New active groups: {activeGroups}");
-
-		foreach (CourseGroup group in groups)
+		foreach (GroupData group in groups)
 		{
 			if (data.IsInGroup(group.GetFullName())) { return true; }
 		}
@@ -83,11 +80,20 @@ public class CourseGroupList : MonoBehaviour
 	private void Start()
 	{
 		Init();
-		CourseGroupDropdown.OnNewGroupsSelectd += NewGroupsSelected;
+	}
+
+	private void OnEnable()
+	{
+		GroupDropdown.OnNewGroupsSelectd += NewGroupsSelected;
+	}
+
+	private void OnDisable()
+	{
+		GroupDropdown.OnNewGroupsSelectd -= NewGroupsSelected;
 	}
 
 	// Events
-	void NewGroupsSelected(List<CourseGroup> groups)
+	void NewGroupsSelected(List<GroupData> groups)
 	{
 		UpdateActiveCourses(groups);
 	}

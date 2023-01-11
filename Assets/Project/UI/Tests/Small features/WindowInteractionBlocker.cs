@@ -6,14 +6,6 @@ public class WindowInteractionBlocker : MonoBehaviour
 	[SerializeField] Transform body;
 	[Inject] WindowFactory windowFactory;
 
-	// Unity
-	private void Start()
-	{
-		windowFactory.OnWindowOpened += _ => UpdateBlocker();
-		windowFactory.OnWindowClosed += _ => UpdateBlocker();
-	}
-
-	// Events
 	void UpdateBlocker()
 	{
 		int activeWindows = windowFactory.ActiveWindows.Count;
@@ -21,4 +13,20 @@ public class WindowInteractionBlocker : MonoBehaviour
 		body.gameObject.SetActive(activeWindows > 0);
 		body.SetSiblingIndex(activeWindows - 1);
 	}
+
+	// Unity
+	private void OnEnable()
+	{
+		windowFactory.OnWindowOpened += WindowStateChanged;
+		windowFactory.OnWindowClosed += WindowStateChanged;
+	}
+
+	private void OnDisable()
+	{
+		windowFactory.OnWindowOpened -= WindowStateChanged;
+		windowFactory.OnWindowClosed -= WindowStateChanged;
+	}
+
+	// Events
+	void WindowStateChanged(Window<Data> window) => UpdateBlocker();
 }

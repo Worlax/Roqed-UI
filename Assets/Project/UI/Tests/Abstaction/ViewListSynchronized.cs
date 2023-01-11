@@ -148,6 +148,7 @@ public abstract class ViewListSynchronized<T> : ViewList<T> where T : Data
 	protected override void Awake()
 	{
 		base.Awake();
+		if (Doomed) { return; }
 
 		synchronizationId = uniqueSynchronization ? uniqueSynchronizationId : -1;
 

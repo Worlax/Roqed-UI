@@ -9,8 +9,19 @@ public class AnimationLabel : MonoBehaviour
 	// Unity
 	private void Start()
 	{
-		AnimationList.OnNewItemToggled += NewAnimationStarted;
+		if (animationList.Doomed) { Destroy(gameObject); return; }
+
 		NewAnimationStarted(animationList.GetActiveItem());
+	}
+
+	private void OnEnable()
+	{
+		AnimationList.OnNewItemToggled += NewAnimationStarted;
+	}
+
+	private void OnDisable()
+	{
+		AnimationList.OnNewItemToggled -= NewAnimationStarted;
 	}
 
 	// Events
