@@ -1,117 +1,79 @@
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class CourseGroupList : MonoBehaviour
 {
-	[SerializeField] Transform courseContent;
-	[SerializeField] Transform dropdownContent;
+	[SerializeField] CourseList courseList;
+	[SerializeField] Transform dropdownsContent;
 	[SerializeField] CourseGroupDropdown baseDropdown;
 
-	List<CourseGroup> allGroups = new List<CourseGroup>();
-
-	CourseGroup CreateGroup(string name) => new CourseGroup() { Name = name };
-	List<CourseGroup> GetBaseGroups() => allGroups.Where(x => x.Parent == null).ToList();
+	List<CourseGroup> rootGroups = new List<CourseGroup>();
 
 	void Init()
 	{
-		foreach (CourseView courseView in GetAllCourses())
-		{
-			AddGroupsFromNames(courseView.Data.GetAllGroups());
-		}
-
-		baseDropdown.Init(GetBaseGroups());
+		CreateGroups();
+		baseDropdown.Init(rootGroups);
 	}
 
-	List<CourseView> GetAllCourses()
+	void CreateGroups()
 	{
-		List<CourseView> courses = new List<CourseView>();
-
-		foreach (Transform transform in courseContent)
+		foreach (CourseData data in courseList.Items.Select(x => x.Data))
 		{
-			courses.Add(transform.GetComponent<CourseView>());
+			CreateGroups(data.GetAllGroups());
 		}
-
-		return courses;
 	}
 
-	void AddGroupsFromNames(string[] groupHierarchy)
+	void CreateGroups(string[] groups)
 	{
-		List<CourseGroup> parentHierarchy = new List<CourseGroup>();
+		string rootName = groups[0];
+		CourseGroup iteratedGroup = FindOrCreateRootGroup(rootName);
 
-		for (int i = 0; i < groupHierarchy.Count(); ++i)
+		for (int i = 1; i < groups.Length; ++i)
 		{
-			CourseGroup group = FindGroup(parentHierarchy, groupHierarchy[i]);
+			CourseGroup nextIteratedGroup = iteratedGroup.FindChildren(groups[i]);
 
-			if (group == null)
+			if (nextIteratedGroup == null)
 			{
-				group = CreateGroup(groupHierarchy[i]);
-				allGroups.Add(group);
+				nextIteratedGroup = new CourseGroup(groups[i]);
+				nextIteratedGroup.Parent = iteratedGroup;
+				iteratedGroup.AddChildren(nextIteratedGroup);
 			}
 
-			if (parentHierarchy.Count != 0)
-			{
-				group.Parent = parentHierarchy.Last();
-				group.Parent.AddChildren(group);
-			}
-
-			parentHierarchy.Add(group);
+			iteratedGroup = nextIteratedGroup;
 		}
-
-		string hierarchyString1= "";
-		groupHierarchy.ToList().ForEach(x => hierarchyString1 += x + ", ");
-		print($"Hierarchy array input: {hierarchyString1}");
-
-		string hierarchyString = "";
-		parentHierarchy.ForEach(x => hierarchyString += x.Name + ", ");
-		print($"Hierarchy created: {hierarchyString}");
 	}
 
-	CourseGroup FindGroup(List<CourseGroup> parentHierarchy, string name)
+	CourseGroup FindOrCreateRootGroup(string name)
 	{
-		string hierarchyString = "";
-		parentHierarchy.ForEach(x => hierarchyString += x.Name + ", ");
+		CourseGroup group = rootGroups.Find(x => x.Name == name);
 
-		if (hierarchyString.Length > 0)
-			hierarchyString = hierarchyString.Substring(0, hierarchyString.Length - 2);
-		print($"Ttying to find: {name} with hieararchy: {hierarchyString}");
-
-		foreach (CourseGroup group in allGroups)
+		if (group == null)
 		{
-			if (group.Name == name && IsParentHierarchyMatch(parentHierarchy, group))
-			{
-				print("found");
-				return group;
-			}
+			group = new CourseGroup(name);
+			rootGroups.Add(group);
 		}
 
-		print("fail");
-		return null;
+		return group;
 	}
 
-	bool IsParentHierarchyMatch(List<CourseGroup> parentHierarchy, CourseGroup group)
+	void UpdateActiveCourses(List<CourseGroup> activeGroups)
 	{
-		parentHierarchy.Reverse();
-		CourseGroup selectedParent = group.Parent;
-
-		foreach (CourseGroup parent in parentHierarchy)
+		foreach (IDataContainer<CourseData> dataContainer in courseList.Items)
 		{
-			if (selectedParent == null || selectedParent.Name != parent.Name)
-			{
-				return false;
-			}
-
-			selectedParent = selectedParent.Parent;
+			bool courseInGroup = IsCourseInAnyOfGroups(dataContainer.Data, activeGroups);
+			dataContainer.GetGameObject().SetActive(courseInGroup);
 		}
-
-		return true;
 	}
 
-	bool IsCourseInAnyOfGroups(CourseView course, List<CourseGroup> groups)
+	bool IsCourseInAnyOfGroups(CourseData data, List<CourseGroup> groups)
 	{
+		string activeGroups = string.Join(", ", groups.Select(x => x.GetFullName()));
+		print($"New active groups: {activeGroups}");
+
 		foreach (CourseGroup group in groups)
 		{
-			if (course.Data.IsInGroup(group.GetFullName())) { return true; }
+			if (data.IsInGroup(group.GetFullName())) { return true; }
 		}
 
 		return false;
@@ -121,19 +83,12 @@ public class CourseGroupList : MonoBehaviour
 	private void Start()
 	{
 		Init();
-
 		CourseGroupDropdown.OnNewGroupsSelectd += NewGroupsSelected;
 	}
 
 	// Events
 	void NewGroupsSelected(List<CourseGroup> groups)
 	{
-		groups.ForEach(x => print(x.GetFullName()));
-
-		foreach (CourseView course in GetAllCourses())
-		{
-			bool courseInGroup = IsCourseInAnyOfGroups(course, groups);
-			course.gameObject.SetActive(courseInGroup);
-		}
+		UpdateActiveCourses(groups);
 	}
 }

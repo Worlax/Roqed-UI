@@ -1,8 +1,8 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Linq;
 
 [RequireComponent(typeof(TMP_Dropdown))]
 public class CourseGroupDropdown : MonoBehaviour

@@ -8,13 +8,23 @@ public class CourseGroup
 
 	List<CourseGroup> children = new List<CourseGroup>();
 
+	public CourseGroup FindChildren(string name) => children.Find(x => x.Name == name);
+
+	public CourseGroup(string name)
+	{
+		Name = name;
+	}	
+
 	public string GetFullName()
 	{
 		string fullName = "";
 
-		if (Parent != null)
+		CourseGroup unwindParent = Parent;
+
+		while (unwindParent != null)
 		{
-			fullName += Parent.Name + "/";
+			fullName = unwindParent.Name + "/" + fullName;
+			unwindParent = unwindParent.Parent;
 		}
 
 		return fullName + Name;

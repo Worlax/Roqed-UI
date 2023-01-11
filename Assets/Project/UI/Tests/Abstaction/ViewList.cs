@@ -10,10 +10,12 @@ public abstract class ViewList<T> : MonoBehaviour where T : Data
 	protected abstract IDataContainer<T> CreateItem(Data data, Transform parent);
 	protected abstract List<IDataContainer<T>> CreateAllItems(Transform parent);
 
+	public List<IDataContainer<T>> Items { get; private set; } = new List<IDataContainer<T>>();
+
 	protected void FillContent()
 	{
 		DeleteContentItems();
-		CreateAllItems(content);
+		Items = CreateAllItems(content);
 	}
 
 	protected List<IDataContainer<T>> GetContentItems()
